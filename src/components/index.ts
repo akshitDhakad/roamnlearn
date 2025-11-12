@@ -1,9 +1,14 @@
 /**
- * Central export file for all components
- * Enables cleaner imports throughout the application
+ * Central export point for all components
+ * This allows for cleaner imports throughout the application
+ * Example: import { Header, Footer } from './components';
  */
 
-export { default as Layout } from "./Layout/Layout";
-export { default as Header } from "./Header/Header";
-export { default as Sidebar } from "./Sidebar/Sidebar";
-export { default as Footer } from "./Footer/Footer";
+// Layout Components
+export { Header, Footer, Layout, Sidebar } from "./layout";
+
+// Common Components
+// export { default as Button } from "./common/Button";
+
+// Feature Components
+// export { default as CourseCard } from "./features/CourseCard";

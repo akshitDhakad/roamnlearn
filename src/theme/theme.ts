@@ -2,25 +2,49 @@ import { createTheme } from "@mui/material/styles";
 
 /**
  * Material UI theme configuration for the educational website
- * Follows Material Design 3 principles with custom educational branding
+ * Follows Material Design 3 principles with custom rose red branding
  */
 export const theme = createTheme({
   palette: {
     mode: "light",
     primary: {
-      main: "#1976d2",
-      light: "#42a5f5",
-      dark: "#1565c0",
+      main: "#e63946", // Vibrant Rose Red
+      light: "#ff6b7a", // Light Rose Red
+      dark: "#c62828", // Dark Red
       contrastText: "#ffffff",
     },
     secondary: {
-      main: "#9c27b0",
-      light: "#ba68c8",
-      dark: "#7b1fa2",
+      main: "#d81b60", // Deep Pink accent
+      light: "#ff5c8d", // Light Pink
+      dark: "#a00037", // Dark Pink
+      contrastText: "#ffffff",
+    },
+    error: {
+      main: "#d32f2f",
+      light: "#ef5350",
+      dark: "#c62828",
+      contrastText: "#ffffff",
+    },
+    success: {
+      main: "#2e7d32",
+      light: "#4caf50",
+      dark: "#1b5e20",
+      contrastText: "#ffffff",
+    },
+    warning: {
+      main: "#ed6c02",
+      light: "#ff9800",
+      dark: "#e65100",
+      contrastText: "#ffffff",
+    },
+    info: {
+      main: "#0288d1",
+      light: "#03a9f4",
+      dark: "#01579b",
       contrastText: "#ffffff",
     },
     background: {
-      default: "#f5f5f5",
+      default: "#fef5f7", // Light rose tinted background
       paper: "#ffffff",
     },
     text: {

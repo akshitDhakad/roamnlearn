@@ -23,7 +23,7 @@ import {
   IconCertificate,
   IconChartBar,
 } from "@tabler/icons-react";
-import { NAVIGATION_ITEMS } from "../../utils/constants";
+import { NAVIGATION_ITEMS } from "../../constants/constants";
 
 interface SidebarProps {
   open: boolean;

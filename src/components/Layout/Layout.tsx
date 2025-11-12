@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Box, Container } from "@mui/material";
-import Header from "../Header/Header";
-import Sidebar from "../Sidebar/Sidebar";
-import Footer from "../Footer/Footer";
+import Header from "./Header";
+import Sidebar from "./Sidebar";
+import Footer from "./Footer";
 
 interface LayoutProps {
   children: React.ReactNode;
