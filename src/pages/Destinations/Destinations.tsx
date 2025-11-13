@@ -567,50 +567,160 @@ const Destinations = memo(() => {
     <Box
       sx={{
         minHeight: "100vh",
-        bgcolor: "background.default",
+        bgcolor: alpha(theme.palette.background.default, 0.98),
         pt: { xs: 10, md: 8 },
-        pb: 8,
+        pb: 10,
       }}
     >
-      {/* Hero Section */}
+      {/* Hero Section with Background Image */}
       <Box
         sx={{
-          bgcolor: "background.paper",
-          borderBottom: `1px solid ${alpha(theme.palette.divider, 0.1)}`,
-          py: { xs: 6, md: 8 },
-          mb: 6,
+          position: "relative",
+          minHeight: { xs: "600px", md: "700px" },
+          display: "flex",
+          alignItems: "center",
+          mb: 8,
+          overflow: "hidden",
+          "&::before": {
+            content: '""',
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundImage:
+              "url(https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1920&h=1080&fit=crop&q=80)",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundAttachment: { xs: "scroll", md: "fixed" },
+            zIndex: 0,
+          },
+          "&::after": {
+            content: '""',
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: `linear-gradient(135deg,
+              ${alpha(theme.palette.primary.dark, 0.85)} 0%,
+              ${alpha(theme.palette.primary.main, 0.75)} 50%,
+              ${alpha(theme.palette.secondary.main, 0.7)} 100%)`,
+            zIndex: 1,
+          },
         }}
       >
-        <Container maxWidth="lg">
-          <Box sx={{ textAlign: "center", mb: 4 }}>
-            <Typography
-              variant="h2"
-              sx={{
-                fontWeight: 700,
-                mb: 2,
-                fontSize: { xs: "2rem", md: "2.75rem" },
-                color: "text.primary",
-              }}
-            >
-              Discover Your Next Adventure
-            </Typography>
-            <Typography
-              variant="body1"
-              color="text.secondary"
-              sx={{ maxWidth: 600, mx: "auto", mb: 4, fontSize: "1.1rem" }}
-            >
-              Explore our curated collection of educational tours across the
-              globe. Find the perfect experience for your students.
-            </Typography>
-
-            {/* Search Bar */}
+        <Container
+          maxWidth="lg"
+          sx={{ position: "relative", zIndex: 2, py: { xs: 8, md: 10 } }}
+        >
+          <Box sx={{ textAlign: "center", mb: 6 }}>
+            {/* Animated Badge */}
             <Box
               sx={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 1,
+                px: 2.5,
+                py: 1,
+                mb: 3,
+                borderRadius: "50px",
+                bgcolor: "rgba(255, 255, 255, 0.15)",
+                backdropFilter: "blur(10px)",
+                border: "1px solid rgba(255, 255, 255, 0.2)",
+                animation: "fadeInDown 0.8s ease-out",
+                "@keyframes fadeInDown": {
+                  from: { opacity: 0, transform: "translateY(-20px)" },
+                  to: { opacity: 1, transform: "translateY(0)" },
+                },
+              }}
+            >
+              <Box
+                sx={{
+                  width: 8,
+                  height: 8,
+                  borderRadius: "50%",
+                  bgcolor: "#4ade80",
+                  animation: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+                  "@keyframes pulse": {
+                    "0%, 100%": { opacity: 1 },
+                    "50%": { opacity: 0.5 },
+                  },
+                }}
+              />
+              <Typography
+                variant="caption"
+                sx={{
+                  color: "white",
+                  fontWeight: 600,
+                  fontSize: "0.875rem",
+                  letterSpacing: "0.5px",
+                }}
+              >
+                200+ Educational Tours Worldwide
+              </Typography>
+            </Box>
+
+            {/* Main Heading */}
+            <Typography
+              variant="h1"
+              sx={{
+                fontWeight: 800,
+                mb: 3,
+                fontSize: { xs: "2.5rem", sm: "3.5rem", md: "4.5rem" },
+                color: "white",
+                lineHeight: 1.1,
+                textShadow: "0 4px 20px rgba(0,0,0,0.3)",
+                animation: "fadeInUp 1s ease-out",
+                "@keyframes fadeInUp": {
+                  from: { opacity: 0, transform: "translateY(30px)" },
+                  to: { opacity: 1, transform: "translateY(0)" },
+                },
+              }}
+            >
+              Discover Your Next
+              <br />
+              <Box
+                component="span"
+                sx={{
+                  background: "linear-gradient(90deg, #fff 0%, #e0e7ff 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
+              >
+                Adventure
+              </Box>
+            </Typography>
+
+            <Typography
+              variant="h5"
+              sx={{
                 maxWidth: 700,
+                mx: "auto",
+                mb: 5,
+                fontSize: { xs: "1.1rem", md: "1.35rem" },
+                color: "rgba(255, 255, 255, 0.95)",
+                lineHeight: 1.6,
+                fontWeight: 400,
+                textShadow: "0 2px 10px rgba(0,0,0,0.2)",
+                animation: "fadeInUp 1s ease-out 0.2s both",
+              }}
+            >
+              Explore our curated collection of educational tours across the
+              globe. Create unforgettable learning experiences for your
+              students.
+            </Typography>
+
+            {/* Modern Search Bar */}
+            <Box
+              sx={{
+                maxWidth: 750,
                 mx: "auto",
                 display: "flex",
                 gap: 2,
                 flexDirection: { xs: "column", sm: "row" },
+                animation: "fadeInUp 1s ease-out 0.4s both",
               }}
             >
               <TextField
@@ -621,76 +731,62 @@ const Destinations = memo(() => {
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
-                      <IconSearch
-                        size={20}
-                        color={theme.palette.text.secondary}
-                      />
+                      <IconSearch size={22} color="rgba(0,0,0,0.6)" />
                     </InputAdornment>
                   ),
                 }}
                 sx={{
-                  bgcolor: "background.paper",
-                  borderRadius: 2,
                   "& .MuiOutlinedInput-root": {
-                    borderRadius: 2,
-                    border: `1px solid ${alpha(theme.palette.divider, 0.2)}`,
+                    bgcolor: "rgba(255, 255, 255, 0.98)",
+                    backdropFilter: "blur(20px)",
+                    borderRadius: 3,
+                    border: "2px solid transparent",
+                    fontSize: "1rem",
+                    py: 0.5,
+                    boxShadow: "0 8px 32px rgba(0,0,0,0.15)",
+                    transition: "all 0.3s ease",
                     "&:hover": {
-                      borderColor: theme.palette.primary.main,
+                      bgcolor: "white",
+                      borderColor: "rgba(255,255,255,0.5)",
+                      boxShadow: "0 12px 40px rgba(0,0,0,0.2)",
                     },
                     "&.Mui-focused": {
-                      borderColor: theme.palette.primary.main,
+                      bgcolor: "white",
+                      borderColor: "white",
+                      boxShadow: "0 12px 48px rgba(0,0,0,0.25)",
+                    },
+                    "& fieldset": {
+                      border: "none",
                     },
                   },
                 }}
               />
               <Button
-                variant="outlined"
-                startIcon={<IconFilter size={18} />}
+                variant="contained"
+                startIcon={<IconFilter size={20} />}
                 onClick={() => setFilterDrawerOpen(true)}
                 sx={{
                   display: { md: "none" },
-                  minWidth: 120,
-                  borderRadius: 2,
+                  minWidth: 140,
+                  borderRadius: 3,
                   textTransform: "none",
-                  fontWeight: 600,
-                  borderColor: alpha(theme.palette.divider, 0.2),
+                  fontWeight: 700,
+                  fontSize: "1rem",
+                  py: 1.75,
+                  bgcolor: "white",
+                  color: theme.palette.primary.main,
+                  boxShadow: "0 8px 32px rgba(0,0,0,0.15)",
+                  "&:hover": {
+                    bgcolor: "white",
+                    boxShadow: "0 12px 40px rgba(0,0,0,0.25)",
+                    transform: "translateY(-2px)",
+                  },
                 }}
               >
                 Filters
               </Button>
             </Box>
           </Box>
-
-          {/* Stats */}
-          <Grid container spacing={3} sx={{ maxWidth: 900, mx: "auto" }}>
-            {[
-              { label: "Countries", value: "50+" },
-              { label: "Tours Available", value: "200+" },
-              { label: "Happy Students", value: "15K+" },
-              { label: "Expert Guides", value: "200+" },
-            ].map((stat, index) => (
-              <Grid size={{ xs: 6, sm: 3 }} key={index}>
-                <Box
-                  sx={{
-                    textAlign: "center",
-                    p: 2,
-                  }}
-                >
-                  <Typography
-                    variant="h4"
-                    fontWeight={700}
-                    color="primary"
-                    sx={{ mb: 0.5 }}
-                  >
-                    {stat.value}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {stat.label}
-                  </Typography>
-                </Box>
-              </Grid>
-            ))}
-          </Grid>
         </Container>
       </Box>
 
@@ -706,8 +802,13 @@ const Destinations = memo(() => {
               sx={{
                 position: "sticky",
                 top: 100,
-                border: `1px solid ${alpha(theme.palette.divider, 0.1)}`,
-                borderRadius: 2,
+                border: `1px solid ${alpha(theme.palette.divider, 0.08)}`,
+                borderRadius: 4,
+                boxShadow: `0 4px 20px ${alpha(
+                  theme.palette.common.black,
+                  0.06
+                )}`,
+                overflow: "hidden",
               }}
             >
               <FilterSection />
@@ -722,25 +823,49 @@ const Destinations = memo(() => {
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
-                mb: 4,
+                mb: 5,
                 flexWrap: "wrap",
                 gap: 2,
+                p: 3,
+                bgcolor: "background.paper",
+                borderRadius: 3,
+                border: `1px solid ${alpha(theme.palette.divider, 0.08)}`,
+                boxShadow: `0 2px 12px ${alpha(
+                  theme.palette.common.black,
+                  0.04
+                )}`,
               }}
             >
-              <Typography
-                variant="body1"
-                color="text.secondary"
-                fontWeight={500}
-              >
-                Showing {filteredTours.length} tours
-              </Typography>
-              <FormControl size="small" sx={{ minWidth: 200 }}>
-                <InputLabel>Sort By</InputLabel>
+              <Box>
+                <Typography
+                  variant="h6"
+                  fontWeight={700}
+                  color="text.primary"
+                  sx={{ mb: 0.5 }}
+                >
+                  {filteredTours.length} Tours Found
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  fontWeight={500}
+                >
+                  Explore amazing destinations
+                </Typography>
+              </Box>
+              <FormControl size="medium" sx={{ minWidth: 220 }}>
+                <InputLabel sx={{ fontWeight: 600 }}>Sort By</InputLabel>
                 <Select
                   value={sortBy}
                   label="Sort By"
                   onChange={(e) => setSortBy(e.target.value)}
-                  sx={{ borderRadius: 1.5 }}
+                  sx={{
+                    borderRadius: 2,
+                    fontWeight: 600,
+                    "& .MuiOutlinedInput-notchedOutline": {
+                      borderColor: alpha(theme.palette.divider, 0.2),
+                    },
+                  }}
                 >
                   <MenuItem value="popular">Most Popular</MenuItem>
                   <MenuItem value="price-low">Price: Low to High</MenuItem>
@@ -751,50 +876,64 @@ const Destinations = memo(() => {
               </FormControl>
             </Box>
 
-            {/* Tour Cards */}
+            {/* Tour Cards - Compact Modern Design */}
             <Grid container spacing={3}>
               {filteredTours.map((tour) => (
                 <Grid size={{ xs: 12, sm: 6, lg: 4 }} key={tour.id}>
                   <Card
                     elevation={0}
+                    onClick={() => {
+                      window.location.hash = `destinations/${tour.id}`;
+                    }}
                     sx={{
                       height: "100%",
                       display: "flex",
                       flexDirection: "column",
-                      border: `1px solid ${alpha(theme.palette.divider, 0.08)}`,
                       borderRadius: 3,
                       overflow: "hidden",
                       transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
                       position: "relative",
                       bgcolor: "background.paper",
-                      boxShadow: `0 2px 8px ${alpha(
+                      border: `1px solid ${alpha(theme.palette.divider, 0.08)}`,
+                      boxShadow: `0 2px 12px ${alpha(
                         theme.palette.common.black,
                         0.04
                       )}`,
+                      cursor: "pointer",
                       "&:hover": {
-                        transform: "translateY(-8px)",
-                        boxShadow: `0 12px 32px ${alpha(
+                        transform: "translateY(-6px)",
+                        boxShadow: `0 12px 36px ${alpha(
                           theme.palette.common.black,
-                          0.12
+                          0.1
                         )}`,
-                        borderColor: alpha(theme.palette.primary.main, 0.2),
+                        border: `1px solid ${alpha(
+                          theme.palette.primary.main,
+                          0.25
+                        )}`,
+                        "& .card-image": {
+                          transform: "scale(1.06)",
+                        },
+                        "& .cta-button": {
+                          bgcolor: theme.palette.primary.dark,
+                        },
                       },
                     }}
                   >
-                    {/* Image Container */}
+                    {/* Image Container - Compact */}
                     <Box
                       sx={{
                         position: "relative",
                         width: "100%",
-                        paddingTop: "65%",
+                        paddingTop: "56%",
                         overflow: "hidden",
-                        bgcolor: alpha(theme.palette.grey[300], 0.2),
+                        bgcolor: alpha(theme.palette.grey[200], 0.3),
                       }}
                     >
                       <CardMedia
                         component="img"
                         image={tour.image}
                         alt={tour.title}
+                        className="card-image"
                         sx={{
                           position: "absolute",
                           top: 0,
@@ -803,105 +942,110 @@ const Destinations = memo(() => {
                           height: "100%",
                           objectFit: "cover",
                           transition:
-                            "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
+                            "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
                         }}
                       />
-                      {/* Dark Overlay at Bottom */}
+                      {/* Subtle Gradient Overlay */}
                       <Box
                         sx={{
                           position: "absolute",
                           bottom: 0,
                           left: 0,
                           right: 0,
-                          height: "50%",
-                          background: `linear-gradient(to top, ${alpha(
-                            theme.palette.common.black,
-                            0.7
-                          )} 0%, ${alpha(
-                            theme.palette.common.black,
-                            0.4
-                          )} 50%, transparent 100%)`,
+                          height: "40%",
+                          background: `linear-gradient(to top,
+                            ${alpha(theme.palette.common.black, 0.6)} 0%,
+                            transparent 100%)`,
                         }}
                       />
 
-                      {/* Featured Badge - Top Left */}
+                      {/* Featured Badge */}
                       {tour.featured && (
                         <Chip
                           label="Featured"
                           size="small"
                           sx={{
                             position: "absolute",
-                            top: 16,
-                            left: 16,
-                            bgcolor: theme.palette.primary.main,
-                            color: "white",
+                            top: 12,
+                            left: 12,
+                            bgcolor: theme.palette.warning.main,
+                            color: "#000",
                             fontWeight: 700,
                             fontSize: "0.75rem",
-                            height: 28,
-                            px: 1,
-                            boxShadow: `0 2px 8px ${alpha(
-                              theme.palette.primary.main,
-                              0.4
-                            )}`,
+                            height: 26,
+                            px: 1.25,
+                            zIndex: 2,
                           }}
                         />
                       )}
 
-                      {/* Favorite Button - Top Right */}
+                      {/* Favorite Button */}
                       <IconButton
                         size="small"
-                        onClick={() => handleToggleFavorite(tour.id)}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleToggleFavorite(tour.id);
+                        }}
                         sx={{
                           position: "absolute",
-                          top: 16,
-                          right: 16,
-                          bgcolor: "rgba(255, 255, 255, 0.98)",
-                          backdropFilter: "blur(10px)",
-                          boxShadow: `0 2px 12px ${alpha("#000000", 0.15)}`,
+                          top: 12,
+                          right: 12,
+                          bgcolor: "rgba(255, 255, 255, 0.9)",
+                          backdropFilter: "blur(8px)",
+                          boxShadow: `0 2px 8px ${alpha("#000000", 0.1)}`,
                           width: 36,
                           height: 36,
+                          zIndex: 2,
                           "&:hover": {
                             bgcolor: "white",
                             transform: "scale(1.1)",
-                            boxShadow: `0 4px 16px ${alpha("#000000", 0.2)}`,
+                            boxShadow: `0 4px 12px ${alpha("#000000", 0.15)}`,
                           },
                           transition: "all 0.2s ease",
                         }}
                       >
                         {favorites.includes(tour.id) ? (
                           <IconHeartFilled
-                            size={20}
+                            size={18}
                             color={theme.palette.error.main}
                           />
                         ) : (
                           <IconHeart
-                            size={20}
+                            size={18}
                             color={theme.palette.text.secondary}
                             strokeWidth={2}
                           />
                         )}
                       </IconButton>
 
-                      {/* Location Badge - Bottom Left on Image */}
+                      {/* Location Badge */}
                       <Box
                         sx={{
                           position: "absolute",
-                          bottom: 16,
-                          left: 16,
+                          bottom: 12,
+                          left: 12,
                           display: "flex",
                           alignItems: "center",
                           gap: 0.75,
+                          bgcolor: "rgba(255, 255, 255, 0.95)",
+                          backdropFilter: "blur(10px)",
+                          px: 1.5,
+                          py: 0.75,
+                          borderRadius: 2,
+                          zIndex: 2,
                         }}
                       >
-                        <IconMapPin size={18} color="white" strokeWidth={2} />
+                        <IconMapPin
+                          size={14}
+                          color={theme.palette.text.secondary}
+                          strokeWidth={2}
+                        />
                         <Typography
                           variant="body2"
                           sx={{
-                            color: "white",
+                            color: "text.primary",
                             fontWeight: 600,
-                            fontSize: "0.875rem",
-                            textShadow: `0 2px 4px ${alpha("#000000", 0.4)}`,
-                            letterSpacing: "0.02em",
+                            fontSize: "0.8rem",
                           }}
                         >
                           {tour.destination}
@@ -912,7 +1056,7 @@ const Destinations = memo(() => {
                     <CardContent
                       sx={{
                         flexGrow: 1,
-                        p: 3.5,
+                        p: 2.5,
                         display: "flex",
                         flexDirection: "column",
                       }}
@@ -925,13 +1069,14 @@ const Destinations = memo(() => {
                         }
                         size="small"
                         sx={{
-                          mb: 2,
+                          mb: 1.5,
                           bgcolor: alpha(theme.palette.primary.main, 0.1),
-                          color: theme.palette.primary.dark,
+                          color: theme.palette.primary.main,
                           fontWeight: 600,
-                          fontSize: "0.75rem",
-                          height: 26,
-                          textTransform: "none",
+                          fontSize: "0.7rem",
+                          height: 24,
+                          px: 1,
+                          textTransform: "capitalize",
                           alignSelf: "flex-start",
                         }}
                       />
@@ -943,91 +1088,25 @@ const Destinations = memo(() => {
                         sx={{
                           mb: 1.5,
                           lineHeight: 1.3,
-                          fontSize: "1.25rem",
+                          fontSize: "1.15rem",
                           color: "text.primary",
-                          minHeight: "3.25rem",
-                        }}
-                      >
-                        {tour.title}
-                      </Typography>
-
-                      {/* Description */}
-                      <Typography
-                        variant="body2"
-                        color="text.secondary"
-                        sx={{
-                          mb: 2.5,
-                          lineHeight: 1.6,
-                          fontSize: "0.9375rem",
                           display: "-webkit-box",
                           WebkitLineClamp: 2,
                           WebkitBoxOrient: "vertical",
                           overflow: "hidden",
-                          flexGrow: 1,
+                          minHeight: "3rem",
                         }}
                       >
-                        {tour.description}
+                        {tour.title}
                       </Typography>
-
-                      {/* Info Icons Row */}
-                      <Stack direction="row" spacing={2.5} sx={{ mb: 3 }}>
-                        <Box
-                          sx={{
-                            display: "flex",
-                            alignItems: "center",
-                            gap: 0.75,
-                          }}
-                        >
-                          <IconClock
-                            size={18}
-                            color={theme.palette.text.secondary}
-                          />
-                          <Typography
-                            variant="body2"
-                            color="text.secondary"
-                            fontWeight={500}
-                            sx={{ fontSize: "0.875rem" }}
-                          >
-                            {tour.duration}
-                          </Typography>
-                        </Box>
-                        <Box
-                          sx={{
-                            display: "flex",
-                            alignItems: "center",
-                            gap: 0.75,
-                          }}
-                        >
-                          <IconUsers
-                            size={18}
-                            color={theme.palette.text.secondary}
-                          />
-                          <Typography
-                            variant="body2"
-                            color="text.secondary"
-                            fontWeight={500}
-                            sx={{ fontSize: "0.875rem" }}
-                          >
-                            {tour.participants}
-                          </Typography>
-                        </Box>
-                      </Stack>
-
-                      {/* Divider */}
-                      <Divider
-                        sx={{
-                          mb: 2.5,
-                          borderColor: alpha(theme.palette.divider, 0.1),
-                        }}
-                      />
 
                       {/* Rating and Price Section */}
                       <Box
                         sx={{
                           display: "flex",
                           justifyContent: "space-between",
-                          alignItems: "flex-start",
-                          mb: 2.5,
+                          alignItems: "center",
+                          mb: 2,
                         }}
                       >
                         {/* Rating */}
@@ -1035,8 +1114,7 @@ const Destinations = memo(() => {
                           sx={{
                             display: "flex",
                             alignItems: "center",
-                            gap: 1,
-                            flexWrap: "wrap",
+                            gap: 0.75,
                           }}
                         >
                           <Rating
@@ -1046,10 +1124,10 @@ const Destinations = memo(() => {
                             readOnly
                             sx={{
                               "& .MuiRating-iconFilled": {
-                                color: theme.palette.warning.main,
+                                color: "#FFB800",
                               },
                               "& .MuiRating-iconEmpty": {
-                                color: alpha(theme.palette.warning.main, 0.2),
+                                color: alpha("#FFB800", 0.15),
                               },
                             }}
                           />
@@ -1057,14 +1135,14 @@ const Destinations = memo(() => {
                             variant="body2"
                             fontWeight={700}
                             color="text.primary"
-                            sx={{ fontSize: "0.9375rem" }}
+                            sx={{ fontSize: "0.9rem" }}
                           >
                             {tour.rating}
                           </Typography>
                           <Typography
                             variant="body2"
                             color="text.secondary"
-                            sx={{ fontSize: "0.875rem" }}
+                            sx={{ fontSize: "0.8rem" }}
                           >
                             ({tour.reviews})
                           </Typography>
@@ -1073,13 +1151,12 @@ const Destinations = memo(() => {
                         {/* Price */}
                         <Box sx={{ textAlign: "right" }}>
                           <Typography
-                            variant="h5"
+                            variant="h6"
                             fontWeight={700}
                             color="primary"
                             sx={{
-                              fontSize: "1.5rem",
-                              lineHeight: 1.2,
-                              mb: 0.25,
+                              fontSize: "1.4rem",
+                              lineHeight: 1,
                             }}
                           >
                             ${tour.price.toLocaleString()}
@@ -1087,7 +1164,7 @@ const Destinations = memo(() => {
                           <Typography
                             variant="caption"
                             color="text.secondary"
-                            sx={{ fontSize: "0.75rem", fontWeight: 500 }}
+                            sx={{ fontSize: "0.7rem" }}
                           >
                             per person
                           </Typography>
@@ -1098,23 +1175,22 @@ const Destinations = memo(() => {
                       <Button
                         variant="contained"
                         fullWidth
-                        endIcon={<IconArrowRight size={20} />}
+                        endIcon={<IconArrowRight size={18} strokeWidth={2} />}
+                        className="cta-button"
                         sx={{
                           borderRadius: 2,
                           textTransform: "none",
                           fontWeight: 600,
-                          py: 1.5,
-                          fontSize: "0.9375rem",
-                          boxShadow: `0 4px 12px ${alpha(
-                            theme.palette.primary.main,
-                            0.3
-                          )}`,
+                          py: 1.25,
+                          fontSize: "0.9rem",
+                          bgcolor: theme.palette.primary.main,
+                          boxShadow: "none",
                           "&:hover": {
-                            boxShadow: `0 6px 16px ${alpha(
+                            bgcolor: theme.palette.primary.dark,
+                            boxShadow: `0 4px 12px ${alpha(
                               theme.palette.primary.main,
-                              0.4
+                              0.3
                             )}`,
-                            transform: "translateY(-1px)",
                           },
                           transition: "all 0.2s ease",
                         }}
@@ -1132,19 +1208,56 @@ const Destinations = memo(() => {
               <Paper
                 elevation={0}
                 sx={{
-                  p: 8,
+                  p: 10,
                   textAlign: "center",
-                  border: `1px solid ${alpha(theme.palette.divider, 0.1)}`,
-                  borderRadius: 2,
+                  border: `1px solid ${alpha(theme.palette.divider, 0.08)}`,
+                  borderRadius: 4,
                   bgcolor: "background.paper",
+                  boxShadow: `0 4px 20px ${alpha(
+                    theme.palette.common.black,
+                    0.04
+                  )}`,
                 }}
               >
-                <Typography variant="h6" fontWeight={600} sx={{ mb: 1 }}>
+                <Typography
+                  variant="h3"
+                  sx={{ mb: 2, fontSize: "3rem", opacity: 0.3 }}
+                >
+                  🔍
+                </Typography>
+                <Typography
+                  variant="h5"
+                  fontWeight={700}
+                  sx={{ mb: 2, color: "text.primary" }}
+                >
                   No tours found
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Try adjusting your filters or search query
+                <Typography
+                  variant="body1"
+                  color="text.secondary"
+                  sx={{ mb: 3 }}
+                >
+                  Try adjusting your filters or search query to find more
+                  destinations
                 </Typography>
+                <Button
+                  variant="outlined"
+                  onClick={() => {
+                    setSelectedCategory("all");
+                    setPriceRange([0, 5000]);
+                    setDurationFilter("all");
+                    setSearchQuery("");
+                  }}
+                  sx={{
+                    borderRadius: 2,
+                    textTransform: "none",
+                    fontWeight: 600,
+                    px: 4,
+                    py: 1.25,
+                  }}
+                >
+                  Reset Filters
+                </Button>
               </Paper>
             )}
           </Grid>

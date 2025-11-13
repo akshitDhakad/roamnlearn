@@ -11,8 +11,8 @@ import {
   Career,
   Documentation,
   HelpCenter,
-  Destinations,
 } from "./pages";
+import { Destinations, DestinationDetail } from "./pages/Destinations";
 
 /**
  * Main App component
@@ -49,6 +49,11 @@ function App() {
 
   // Render appropriate page
   const renderPage = () => {
+    // Check if it's a destination detail page (destinations/id format)
+    if (currentPage.startsWith("destinations/")) {
+      return <DestinationDetail />;
+    }
+
     switch (currentPage) {
       case "about":
         return <About />;
