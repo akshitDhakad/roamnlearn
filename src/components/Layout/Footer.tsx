@@ -109,6 +109,18 @@ const Footer = memo(
           window.location.hash = "about";
         } else if (path === "/contact") {
           window.location.hash = "contact";
+        } else if (path === "/privacy") {
+          window.location.hash = "privacy";
+        } else if (path === "/terms") {
+          window.location.hash = "terms";
+        } else if (path === "/cookies") {
+          window.location.hash = "cookies";
+        } else if (path === "/careers") {
+          window.location.hash = "career";
+        } else if (path === "/help") {
+          window.location.hash = "help";
+        } else if (path === "/docs") {
+          window.location.hash = "documentation";
         } else if (path === "/") {
           window.location.hash = "home";
         }

@@ -74,39 +74,56 @@ const Sidebar = ({ open, onClose }: SidebarProps) => {
 
       {/* Navigation Items */}
       <List sx={{ pt: 2 }}>
-        {NAVIGATION_ITEMS.map((item) => (
-          <ListItem key={item.id} disablePadding>
-            <ListItemButton
-              sx={{
-                py: 1.5,
-                px: 2,
-                "&:hover": {
-                  backgroundColor: "action.hover",
-                },
-                "&.Mui-selected": {
-                  backgroundColor: "primary.light",
-                  color: "primary.contrastText",
+        {NAVIGATION_ITEMS.map((item) => {
+          const handleClick = () => {
+            // Simple hash-based navigation (temporary until React Router is implemented)
+            if (item.path === "/about") {
+              window.location.hash = "about";
+            } else if (item.path === "/contact") {
+              window.location.hash = "contact";
+            } else if (item.path === "/destinations") {
+              window.location.hash = "destinations";
+            } else if (item.path === "/") {
+              window.location.hash = "home";
+            }
+            onClose();
+          };
+
+          return (
+            <ListItem key={item.id} disablePadding>
+              <ListItemButton
+                onClick={handleClick}
+                sx={{
+                  py: 1.5,
+                  px: 2,
                   "&:hover": {
-                    backgroundColor: "primary.main",
+                    backgroundColor: "action.hover",
                   },
-                  "& .MuiListItemIcon-root": {
+                  "&.Mui-selected": {
+                    backgroundColor: "primary.light",
                     color: "primary.contrastText",
+                    "&:hover": {
+                      backgroundColor: "primary.main",
+                    },
+                    "& .MuiListItemIcon-root": {
+                      color: "primary.contrastText",
+                    },
                   },
-                },
-              }}
-            >
-              <ListItemIcon sx={{ minWidth: 40 }}>
-                {iconMap[item.icon] || <IconHome size={20} />}
-              </ListItemIcon>
-              <ListItemText
-                primary={item.label}
-                primaryTypographyProps={{
-                  fontWeight: 500,
                 }}
-              />
-            </ListItemButton>
-          </ListItem>
-        ))}
+              >
+                <ListItemIcon sx={{ minWidth: 40 }}>
+                  {iconMap[item.icon] || <IconHome size={20} />}
+                </ListItemIcon>
+                <ListItemText
+                  primary={item.label}
+                  primaryTypographyProps={{
+                    fontWeight: 500,
+                  }}
+                />
+              </ListItemButton>
+            </ListItem>
+          );
+        })}
       </List>
 
       <Divider sx={{ my: 2 }} />

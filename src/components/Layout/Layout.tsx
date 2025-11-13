@@ -1,18 +1,19 @@
 import { useState } from "react";
-import { Box, Container } from "@mui/material";
+import { Box } from "@mui/material";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 import Footer from "./Footer";
 
 interface LayoutProps {
   children: React.ReactNode;
+  activePath?: string;
 }
 
 /**
  * Main Layout component that wraps all pages
  * Manages sidebar state and provides consistent structure
  */
-const Layout = ({ children }: LayoutProps) => {
+const Layout = ({ children, activePath = "/" }: LayoutProps) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const handleMenuClick = () => {
@@ -32,14 +33,13 @@ const Layout = ({ children }: LayoutProps) => {
         backgroundColor: "background.default",
       }}
     >
-      <Header onMenuClick={handleMenuClick} />
+      <Header onMenuClick={handleMenuClick} activePath={activePath} />
       <Box sx={{ display: "flex", flex: 1 }}>
         <Sidebar open={sidebarOpen} onClose={handleSidebarClose} />
         <Box
           component="main"
           sx={{
             flexGrow: 1,
-            p: { xs: 2, sm: 3, md: 4 },
             width: { md: `calc(100% - ${sidebarOpen ? 280 : 0}px)` },
             transition: (theme) =>
               theme.transitions.create("width", {
@@ -48,7 +48,7 @@ const Layout = ({ children }: LayoutProps) => {
               }),
           }}
         >
-          <Container maxWidth="xl">{children}</Container>
+          {children}
         </Box>
       </Box>
       <Footer />
