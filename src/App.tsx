@@ -11,6 +11,8 @@ import {
   Career,
   Documentation,
   HelpCenter,
+  Auth,
+  Profile,
 } from "./pages";
 import { Destinations, DestinationDetail } from "./pages/Destinations";
 
@@ -59,6 +61,10 @@ function App() {
         return <About />;
       case "contact":
         return <Contact />;
+      case "auth":
+        return <Auth />;
+      case "profile":
+        return <Profile />;
       case "privacy":
         return <PrivacyPolicy />;
       case "terms":
@@ -83,10 +89,19 @@ function App() {
     return `/${currentPage}`;
   };
 
+  // Pages that should NOT have navbar/footer
+  const isAuthPage = currentPage === "auth";
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Layout activePath={getActivePath()}>{renderPage()}</Layout>
+      {isAuthPage ? (
+        // Auth page without Layout (no navbar/footer)
+        renderPage()
+      ) : (
+        // All other pages with Layout (navbar/footer)
+        <Layout activePath={getActivePath()}>{renderPage()}</Layout>
+      )}
     </ThemeProvider>
   );
 }
