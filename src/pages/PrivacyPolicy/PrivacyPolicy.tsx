@@ -321,27 +321,27 @@ const PrivacyPolicy = memo(() => {
               </Typography>
             </Box>
 
-            {section.content.map((item, itemIndex) => (
+              {section.content.map((item, itemIndex) => (
               <Box key={itemIndex} sx={{ mb: itemIndex < section.content.length - 1 ? 3 : 0 }}>
-                {item.subtitle && (
+                {("subtitle" in item) && (
                   <Typography
                     variant="h6"
                     fontWeight={600}
                     sx={{ mb: 2, color: theme.palette.primary.main }}
                   >
-                    {item.subtitle}
+                    {("subtitle" in item) ? item.subtitle : ""}
                   </Typography>
                 )}
-                {item.text && (
+                {("text" in item) && (
                   <Typography
                     variant="body1"
                     paragraph
-                    sx={{ lineHeight: 1.8, mb: item.list ? 2 : 0 }}
+                    sx={{ lineHeight: 1.8, mb: Array.isArray((item as any).list) ? 2 : 0 }}
                   >
                     {item.text}
                   </Typography>
                 )}
-                {item.list && (
+                {Array.isArray((item as any).list) && (
                   <List sx={{ pl: 2 }}>
                     {item.list.map((listItem, listIndex) => (
                       <ListItem
@@ -480,7 +480,9 @@ const PrivacyPolicy = memo(() => {
               </Typography>
             </Box>
             <Box sx={{ display: "flex", alignItems: "flex-start", gap: 2 }}>
-              <IconUser size={20} color={theme.palette.primary.main} sx={{ mt: 0.5 }} />
+              <Box sx={{ mt: 0.5, lineHeight: 0 }}>
+                <IconUser size={20} color={theme.palette.primary.main} />
+              </Box>
               <Typography variant="body1">
                 Mailing Address:<br />
                 RoamnLearn Inc.<br />

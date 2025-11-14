@@ -2,7 +2,6 @@ import { useState, useMemo } from "react";
 import {
   Box,
   Container,
-  Grid,
   Paper,
   Stack,
   Typography,
@@ -32,6 +31,7 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
+import Grid from "@mui/material/Grid";
 import {
   IconUser,
   IconSchool,
@@ -81,7 +81,8 @@ const Profile = () => {
   const [activeTab, setActiveTab] = useState(0);
 
   // Mock referral code for user
-  const userReferralCode = "ROAM" + user?.name?.substring(0, 4).toUpperCase() + "2025";
+  const userReferralCode =
+    "ROAM" + user?.name?.substring(0, 4).toUpperCase() + "2025";
 
   const handleLogout = () => {
     logout();
@@ -147,7 +148,8 @@ const Profile = () => {
           sx={{
             position: "absolute",
             inset: 0,
-            backgroundImage: 'url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1600&auto=format&fit=crop&q=80")',
+            backgroundImage:
+              'url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1600&auto=format&fit=crop&q=80")',
             backgroundSize: "cover",
             backgroundPosition: "center",
             opacity: 0.2,
@@ -258,7 +260,10 @@ const Profile = () => {
                   fontSize: "3.5rem",
                   fontWeight: 900,
                   border: `5px solid ${theme.palette.background.paper}`,
-                  boxShadow: `0 8px 24px ${alpha(theme.palette.common.black, 0.2)}`,
+                  boxShadow: `0 8px 24px ${alpha(
+                    theme.palette.common.black,
+                    0.2
+                  )}`,
                 }}
               >
                 {user.name.charAt(0).toUpperCase()}
@@ -311,8 +316,13 @@ const Profile = () => {
                 />
               </Stack>
 
-              <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 600 }}>
-                Passionate learner exploring the world through educational tours. Member since January 2025.
+              <Typography
+                variant="body2"
+                color="text.secondary"
+                sx={{ maxWidth: 600 }}
+              >
+                Passionate learner exploring the world through educational
+                tours. Member since January 2025.
               </Typography>
             </Box>
 
@@ -348,7 +358,7 @@ const Profile = () => {
 
         {/* Enhanced Dashboard Stats */}
         <Grid container spacing={3} sx={{ mb: 4 }}>
-          <Grid item xs={12} sm={6} lg={3}>
+          <Grid size={{ xs: 12, sm: 6, lg: 3 }}>
             <Card
               sx={{
                 background: `linear-gradient(135deg, ${theme.palette.primary.light} 0%, ${theme.palette.primary.main} 100%)`,
@@ -357,7 +367,10 @@ const Profile = () => {
                 transition: "transform 0.3s, box-shadow 0.3s",
                 "&:hover": {
                   transform: "translateY(-5px)",
-                  boxShadow: `0 12px 24px ${alpha(theme.palette.primary.main, 0.3)}`,
+                  boxShadow: `0 12px 24px ${alpha(
+                    theme.palette.primary.main,
+                    0.3
+                  )}`,
                 },
               }}
             >
@@ -380,7 +393,10 @@ const Profile = () => {
                     <Typography variant="h3" fontWeight={900}>
                       5
                     </Typography>
-                    <Typography variant="body1" sx={{ opacity: 0.9, fontWeight: 500 }}>
+                    <Typography
+                      variant="body1"
+                      sx={{ opacity: 0.9, fontWeight: 500 }}
+                    >
                       Tours Completed
                     </Typography>
                   </Box>
@@ -402,7 +418,7 @@ const Profile = () => {
             </Card>
           </Grid>
 
-          <Grid item xs={12} sm={6} lg={3}>
+          <Grid size={{ xs: 12, sm: 6, lg: 3 }}>
             <Card
               sx={{
                 background: `linear-gradient(135deg, ${theme.palette.success.light} 0%, ${theme.palette.success.main} 100%)`,
@@ -411,7 +427,10 @@ const Profile = () => {
                 transition: "transform 0.3s, box-shadow 0.3s",
                 "&:hover": {
                   transform: "translateY(-5px)",
-                  boxShadow: `0 12px 24px ${alpha(theme.palette.success.main, 0.3)}`,
+                  boxShadow: `0 12px 24px ${alpha(
+                    theme.palette.success.main,
+                    0.3
+                  )}`,
                 },
               }}
             >
@@ -434,7 +453,10 @@ const Profile = () => {
                     <Typography variant="h3" fontWeight={900}>
                       3
                     </Typography>
-                    <Typography variant="body1" sx={{ opacity: 0.9, fontWeight: 500 }}>
+                    <Typography
+                      variant="body1"
+                      sx={{ opacity: 0.9, fontWeight: 500 }}
+                    >
                       Certificates Earned
                     </Typography>
                   </Box>
@@ -456,7 +478,7 @@ const Profile = () => {
             </Card>
           </Grid>
 
-          <Grid item xs={12} sm={6} lg={3}>
+          <Grid size={{ xs: 12, sm: 6, lg: 3 }}>
             <Card
               sx={{
                 background: `linear-gradient(135deg, ${theme.palette.warning.light} 0%, ${theme.palette.warning.main} 100%)`,
@@ -465,7 +487,10 @@ const Profile = () => {
                 transition: "transform 0.3s, box-shadow 0.3s",
                 "&:hover": {
                   transform: "translateY(-5px)",
-                  boxShadow: `0 12px 24px ${alpha(theme.palette.warning.main, 0.3)}`,
+                  boxShadow: `0 12px 24px ${alpha(
+                    theme.palette.warning.main,
+                    0.3
+                  )}`,
                 },
               }}
             >
@@ -488,7 +513,10 @@ const Profile = () => {
                     <Typography variant="h3" fontWeight={900}>
                       $250
                     </Typography>
-                    <Typography variant="body1" sx={{ opacity: 0.9, fontWeight: 500 }}>
+                    <Typography
+                      variant="body1"
+                      sx={{ opacity: 0.9, fontWeight: 500 }}
+                    >
                       Wallet Balance
                     </Typography>
                   </Box>
@@ -510,7 +538,7 @@ const Profile = () => {
             </Card>
           </Grid>
 
-          <Grid item xs={12} sm={6} lg={3}>
+          <Grid size={{ xs: 12, sm: 6, lg: 3 }}>
             <Card
               sx={{
                 background: `linear-gradient(135deg, ${theme.palette.info.light} 0%, ${theme.palette.info.main} 100%)`,
@@ -519,7 +547,10 @@ const Profile = () => {
                 transition: "transform 0.3s, box-shadow 0.3s",
                 "&:hover": {
                   transform: "translateY(-5px)",
-                  boxShadow: `0 12px 24px ${alpha(theme.palette.info.main, 0.3)}`,
+                  boxShadow: `0 12px 24px ${alpha(
+                    theme.palette.info.main,
+                    0.3
+                  )}`,
                 },
               }}
             >
@@ -542,7 +573,10 @@ const Profile = () => {
                     <Typography variant="h3" fontWeight={900}>
                       450
                     </Typography>
-                    <Typography variant="body1" sx={{ opacity: 0.9, fontWeight: 500 }}>
+                    <Typography
+                      variant="body1"
+                      sx={{ opacity: 0.9, fontWeight: 500 }}
+                    >
                       Reward Points
                     </Typography>
                   </Box>
@@ -593,14 +627,46 @@ const Profile = () => {
               },
             }}
           >
-            <Tab icon={<IconUser size={22} />} iconPosition="start" label="Personal Info" />
-            <Tab icon={<IconSchool size={22} />} iconPosition="start" label="Institute" />
-            <Tab icon={<IconHeart size={22} />} iconPosition="start" label="Medical" />
-            <Tab icon={<IconFileText size={22} />} iconPosition="start" label="Documents" />
-            <Tab icon={<IconWallet size={22} />} iconPosition="start" label="Wallet" />
-            <Tab icon={<IconUsers size={22} />} iconPosition="start" label="Referrals" />
-            <Tab icon={<IconBell size={22} />} iconPosition="start" label="Notifications" />
-            <Tab icon={<IconHistory size={22} />} iconPosition="start" label="Tour History" />
+            <Tab
+              icon={<IconUser size={22} />}
+              iconPosition="start"
+              label="Personal Info"
+            />
+            <Tab
+              icon={<IconSchool size={22} />}
+              iconPosition="start"
+              label="Institute"
+            />
+            <Tab
+              icon={<IconHeart size={22} />}
+              iconPosition="start"
+              label="Medical"
+            />
+            <Tab
+              icon={<IconFileText size={22} />}
+              iconPosition="start"
+              label="Documents"
+            />
+            <Tab
+              icon={<IconWallet size={22} />}
+              iconPosition="start"
+              label="Wallet"
+            />
+            <Tab
+              icon={<IconUsers size={22} />}
+              iconPosition="start"
+              label="Referrals"
+            />
+            <Tab
+              icon={<IconBell size={22} />}
+              iconPosition="start"
+              label="Notifications"
+            />
+            <Tab
+              icon={<IconHistory size={22} />}
+              iconPosition="start"
+              label="Tour History"
+            />
           </Tabs>
         </Paper>
 
@@ -610,9 +676,14 @@ const Profile = () => {
           {activeTab === 0 && (
             <Grid container spacing={3}>
               {/* Basic Info Card */}
-              <Grid item xs={12} md={6}>
+              <Grid size={{ xs: 12, md: 6 }}>
                 <Paper sx={{ p: 4, borderRadius: 3, height: "100%" }}>
-                  <Stack direction="row" justifyContent="space-between" alignItems="center" mb={3}>
+                  <Stack
+                    direction="row"
+                    justifyContent="space-between"
+                    alignItems="center"
+                    mb={3}
+                  >
                     <Typography variant="h6" fontWeight={800}>
                       Basic Information
                     </Typography>
@@ -623,10 +694,18 @@ const Profile = () => {
 
                   <Stack spacing={3}>
                     <Box>
-                      <Typography variant="caption" color="text.secondary" fontWeight={600}>
+                      <Typography
+                        variant="caption"
+                        color="text.secondary"
+                        fontWeight={600}
+                      >
                         FULL NAME
                       </Typography>
-                      <Typography variant="body1" fontWeight={600} sx={{ mt: 0.5 }}>
+                      <Typography
+                        variant="body1"
+                        fontWeight={600}
+                        sx={{ mt: 0.5 }}
+                      >
                         {user.name}
                       </Typography>
                     </Box>
@@ -634,10 +713,18 @@ const Profile = () => {
                     <Divider />
 
                     <Box>
-                      <Typography variant="caption" color="text.secondary" fontWeight={600}>
+                      <Typography
+                        variant="caption"
+                        color="text.secondary"
+                        fontWeight={600}
+                      >
                         DATE OF BIRTH
                       </Typography>
-                      <Typography variant="body1" fontWeight={600} sx={{ mt: 0.5 }}>
+                      <Typography
+                        variant="body1"
+                        fontWeight={600}
+                        sx={{ mt: 0.5 }}
+                      >
                         {user.profile?.dateOfBirth || "Not provided"}
                       </Typography>
                     </Box>
@@ -645,10 +732,18 @@ const Profile = () => {
                     <Divider />
 
                     <Box>
-                      <Typography variant="caption" color="text.secondary" fontWeight={600}>
+                      <Typography
+                        variant="caption"
+                        color="text.secondary"
+                        fontWeight={600}
+                      >
                         GENDER
                       </Typography>
-                      <Typography variant="body1" fontWeight={600} sx={{ mt: 0.5 }}>
+                      <Typography
+                        variant="body1"
+                        fontWeight={600}
+                        sx={{ mt: 0.5 }}
+                      >
                         {user.profile?.gender || "Not provided"}
                       </Typography>
                     </Box>
@@ -657,9 +752,14 @@ const Profile = () => {
               </Grid>
 
               {/* Contact Info Card */}
-              <Grid item xs={12} md={6}>
+              <Grid size={{ xs: 12, md: 6 }}>
                 <Paper sx={{ p: 4, borderRadius: 3, height: "100%" }}>
-                  <Stack direction="row" justifyContent="space-between" alignItems="center" mb={3}>
+                  <Stack
+                    direction="row"
+                    justifyContent="space-between"
+                    alignItems="center"
+                    mb={3}
+                  >
                     <Typography variant="h6" fontWeight={800}>
                       Contact Information
                     </Typography>
@@ -670,11 +770,23 @@ const Profile = () => {
 
                   <Stack spacing={3}>
                     <Box>
-                      <Typography variant="caption" color="text.secondary" fontWeight={600}>
+                      <Typography
+                        variant="caption"
+                        color="text.secondary"
+                        fontWeight={600}
+                      >
                         EMAIL ADDRESS
                       </Typography>
-                      <Stack direction="row" spacing={1} alignItems="center" sx={{ mt: 0.5 }}>
-                        <IconMail size={18} color={theme.palette.primary.main} />
+                      <Stack
+                        direction="row"
+                        spacing={1}
+                        alignItems="center"
+                        sx={{ mt: 0.5 }}
+                      >
+                        <IconMail
+                          size={18}
+                          color={theme.palette.primary.main}
+                        />
                         <Typography variant="body1" fontWeight={600}>
                           {user.email}
                         </Typography>
@@ -684,11 +796,23 @@ const Profile = () => {
                     <Divider />
 
                     <Box>
-                      <Typography variant="caption" color="text.secondary" fontWeight={600}>
+                      <Typography
+                        variant="caption"
+                        color="text.secondary"
+                        fontWeight={600}
+                      >
                         PHONE NUMBER
                       </Typography>
-                      <Stack direction="row" spacing={1} alignItems="center" sx={{ mt: 0.5 }}>
-                        <IconPhone size={18} color={theme.palette.primary.main} />
+                      <Stack
+                        direction="row"
+                        spacing={1}
+                        alignItems="center"
+                        sx={{ mt: 0.5 }}
+                      >
+                        <IconPhone
+                          size={18}
+                          color={theme.palette.primary.main}
+                        />
                         <Typography variant="body1" fontWeight={600}>
                           {user.phone}
                         </Typography>
@@ -699,9 +823,14 @@ const Profile = () => {
               </Grid>
 
               {/* Address Card */}
-              <Grid item xs={12}>
+              <Grid size={{ xs: 12 }}>
                 <Paper sx={{ p: 4, borderRadius: 3 }}>
-                  <Stack direction="row" justifyContent="space-between" alignItems="center" mb={3}>
+                  <Stack
+                    direction="row"
+                    justifyContent="space-between"
+                    alignItems="center"
+                    mb={3}
+                  >
                     <Typography variant="h6" fontWeight={800}>
                       Address Details
                     </Typography>
@@ -715,7 +844,10 @@ const Profile = () => {
                       p: 3,
                       borderRadius: 2,
                       bgcolor: alpha(theme.palette.primary.main, 0.05),
-                      border: `1px solid ${alpha(theme.palette.primary.main, 0.1)}`,
+                      border: `1px solid ${alpha(
+                        theme.palette.primary.main,
+                        0.1
+                      )}`,
                     }}
                   >
                     <Stack direction="row" spacing={2} alignItems="flex-start">
@@ -734,13 +866,19 @@ const Profile = () => {
                         <IconHome size={24} color="white" />
                       </Box>
                       <Box>
-                        <Typography variant="body1" fontWeight={600} gutterBottom>
+                        <Typography
+                          variant="body1"
+                          fontWeight={600}
+                          gutterBottom
+                        >
                           {user.profile?.houseNumber && user.profile?.street
                             ? `${user.profile.houseNumber}, ${user.profile.street}`
                             : "Street address not provided"}
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
-                          {user.profile?.city && user.profile?.state && user.profile?.country
+                          {user.profile?.city &&
+                          user.profile?.state &&
+                          user.profile?.country
                             ? `${user.profile.city}, ${user.profile.state}, ${user.profile.country}`
                             : "City, State, Country not provided"}
                         </Typography>
@@ -751,9 +889,14 @@ const Profile = () => {
               </Grid>
 
               {/* Guardian Info Card */}
-              <Grid item xs={12}>
+              <Grid size={{ xs: 12 }}>
                 <Paper sx={{ p: 4, borderRadius: 3 }}>
-                  <Stack direction="row" justifyContent="space-between" alignItems="center" mb={3}>
+                  <Stack
+                    direction="row"
+                    justifyContent="space-between"
+                    alignItems="center"
+                    mb={3}
+                  >
                     <Typography variant="h6" fontWeight={800}>
                       Guardian / Parent Information
                     </Typography>
@@ -763,45 +906,77 @@ const Profile = () => {
                   </Stack>
 
                   <Grid container spacing={3}>
-                    <Grid item xs={12} md={6}>
+                    <Grid size={{ xs: 12, md: 6 }}>
                       <Box>
-                        <Typography variant="caption" color="text.secondary" fontWeight={600}>
+                        <Typography
+                          variant="caption"
+                          color="text.secondary"
+                          fontWeight={600}
+                        >
                           GUARDIAN NAME
                         </Typography>
-                        <Typography variant="body1" fontWeight={600} sx={{ mt: 0.5 }}>
+                        <Typography
+                          variant="body1"
+                          fontWeight={600}
+                          sx={{ mt: 0.5 }}
+                        >
                           {user.profile?.parentName || "Not provided"}
                         </Typography>
                       </Box>
                     </Grid>
 
-                    <Grid item xs={12} md={6}>
+                    <Grid size={{ xs: 12, md: 6 }}>
                       <Box>
-                        <Typography variant="caption" color="text.secondary" fontWeight={600}>
+                        <Typography
+                          variant="caption"
+                          color="text.secondary"
+                          fontWeight={600}
+                        >
                           RELATIONSHIP
                         </Typography>
-                        <Typography variant="body1" fontWeight={600} sx={{ mt: 0.5 }}>
+                        <Typography
+                          variant="body1"
+                          fontWeight={600}
+                          sx={{ mt: 0.5 }}
+                        >
                           {user.profile?.guardianRelation || "Not provided"}
                         </Typography>
                       </Box>
                     </Grid>
 
-                    <Grid item xs={12} md={6}>
+                    <Grid size={{ xs: 12, md: 6 }}>
                       <Box>
-                        <Typography variant="caption" color="text.secondary" fontWeight={600}>
+                        <Typography
+                          variant="caption"
+                          color="text.secondary"
+                          fontWeight={600}
+                        >
                           GUARDIAN EMAIL
                         </Typography>
-                        <Typography variant="body1" fontWeight={600} sx={{ mt: 0.5 }}>
+                        <Typography
+                          variant="body1"
+                          fontWeight={600}
+                          sx={{ mt: 0.5 }}
+                        >
                           {user.profile?.guardianEmail || "Not provided"}
                         </Typography>
                       </Box>
                     </Grid>
 
-                    <Grid item xs={12} md={6}>
+                    <Grid size={{ xs: 12, md: 6 }}>
                       <Box>
-                        <Typography variant="caption" color="text.secondary" fontWeight={600}>
+                        <Typography
+                          variant="caption"
+                          color="text.secondary"
+                          fontWeight={600}
+                        >
                           GUARDIAN PHONE
                         </Typography>
-                        <Typography variant="body1" fontWeight={600} sx={{ mt: 0.5 }}>
+                        <Typography
+                          variant="body1"
+                          fontWeight={600}
+                          sx={{ mt: 0.5 }}
+                        >
                           {user.profile?.guardianPhone || "Not provided"}
                         </Typography>
                       </Box>
@@ -815,9 +990,14 @@ const Profile = () => {
           {/* Institute Information Tab - Enhanced */}
           {activeTab === 1 && (
             <Grid container spacing={3}>
-              <Grid item xs={12} md={6}>
+              <Grid size={{ xs: 12, md: 6 }}>
                 <Paper sx={{ p: 4, borderRadius: 3, height: "100%" }}>
-                  <Stack direction="row" justifyContent="space-between" alignItems="center" mb={3}>
+                  <Stack
+                    direction="row"
+                    justifyContent="space-between"
+                    alignItems="center"
+                    mb={3}
+                  >
                     <Typography variant="h6" fontWeight={800}>
                       Education Details
                     </Typography>
@@ -828,7 +1008,11 @@ const Profile = () => {
 
                   <Stack spacing={3}>
                     <Box>
-                      <Typography variant="caption" color="text.secondary" fontWeight={600}>
+                      <Typography
+                        variant="caption"
+                        color="text.secondary"
+                        fontWeight={600}
+                      >
                         GRADE / LEVEL
                       </Typography>
                       <Chip
@@ -841,11 +1025,23 @@ const Profile = () => {
                     <Divider />
 
                     <Box>
-                      <Typography variant="caption" color="text.secondary" fontWeight={600}>
+                      <Typography
+                        variant="caption"
+                        color="text.secondary"
+                        fontWeight={600}
+                      >
                         INSTITUTION NAME
                       </Typography>
-                      <Stack direction="row" spacing={1} alignItems="center" sx={{ mt: 1 }}>
-                        <IconSchool size={20} color={theme.palette.primary.main} />
+                      <Stack
+                        direction="row"
+                        spacing={1}
+                        alignItems="center"
+                        sx={{ mt: 1 }}
+                      >
+                        <IconSchool
+                          size={20}
+                          color={theme.palette.primary.main}
+                        />
                         <Typography variant="body1" fontWeight={600}>
                           {user.profile?.college || "Not provided"}
                         </Typography>
@@ -855,14 +1051,18 @@ const Profile = () => {
                 </Paper>
               </Grid>
 
-              <Grid item xs={12} md={6}>
+              <Grid size={{ xs: 12, md: 6 }}>
                 <Paper sx={{ p: 4, borderRadius: 3, height: "100%" }}>
                   <Typography variant="h6" fontWeight={800} mb={3}>
                     Profile Completion
                   </Typography>
 
                   <Box>
-                    <Stack direction="row" justifyContent="space-between" mb={2}>
+                    <Stack
+                      direction="row"
+                      justifyContent="space-between"
+                      mb={2}
+                    >
                       <Typography variant="body2" fontWeight={600}>
                         Overall Progress
                       </Typography>
@@ -883,21 +1083,26 @@ const Profile = () => {
                         },
                       }}
                     />
-                    <Typography variant="caption" color="text.secondary" sx={{ mt: 1, display: "block" }}>
+                    <Typography
+                      variant="caption"
+                      color="text.secondary"
+                      sx={{ mt: 1, display: "block" }}
+                    >
                       Complete your profile to unlock all features
                     </Typography>
                   </Box>
                 </Paper>
               </Grid>
 
-              <Grid item xs={12}>
+              <Grid size={{ xs: 12 }}>
                 <Paper sx={{ p: 4, borderRadius: 3 }}>
                   <Typography variant="h6" fontWeight={800} mb={3}>
                     Interests & Hobbies
                   </Typography>
 
                   <Stack direction="row" spacing={1} flexWrap="wrap" gap={1}>
-                    {user.profile?.interests && user.profile.interests.length > 0 ? (
+                    {user.profile?.interests &&
+                    user.profile.interests.length > 0 ? (
                       user.profile.interests.map((interest, idx) => (
                         <Chip
                           key={idx}
@@ -918,7 +1123,8 @@ const Profile = () => {
                         }}
                       >
                         <Typography variant="body2" color="text.secondary">
-                          No interests added yet. Add your interests to personalize your experience!
+                          No interests added yet. Add your interests to
+                          personalize your experience!
                         </Typography>
                       </Box>
                     )}
@@ -931,9 +1137,14 @@ const Profile = () => {
           {/* Medical Information Tab - Enhanced */}
           {activeTab === 2 && (
             <Grid container spacing={3}>
-              <Grid item xs={12} md={6}>
+              <Grid size={{ xs: 12, md: 6 }}>
                 <Paper sx={{ p: 4, borderRadius: 3, height: "100%" }}>
-                  <Stack direction="row" justifyContent="space-between" alignItems="center" mb={3}>
+                  <Stack
+                    direction="row"
+                    justifyContent="space-between"
+                    alignItems="center"
+                    mb={3}
+                  >
                     <Typography variant="h6" fontWeight={800}>
                       Health Information
                     </Typography>
@@ -944,7 +1155,11 @@ const Profile = () => {
 
                   <Stack spacing={3}>
                     <Box>
-                      <Typography variant="caption" color="text.secondary" fontWeight={600}>
+                      <Typography
+                        variant="caption"
+                        color="text.secondary"
+                        fontWeight={600}
+                      >
                         BLOOD GROUP
                       </Typography>
                       <Box
@@ -953,10 +1168,17 @@ const Profile = () => {
                           p: 2,
                           borderRadius: 2,
                           bgcolor: alpha(theme.palette.error.main, 0.1),
-                          border: `2px solid ${alpha(theme.palette.error.main, 0.3)}`,
+                          border: `2px solid ${alpha(
+                            theme.palette.error.main,
+                            0.3
+                          )}`,
                         }}
                       >
-                        <Typography variant="h5" fontWeight={800} color="error.main">
+                        <Typography
+                          variant="h5"
+                          fontWeight={800}
+                          color="error.main"
+                        >
                           O+ (Positive)
                         </Typography>
                       </Box>
@@ -965,19 +1187,35 @@ const Profile = () => {
                     <Divider />
 
                     <Grid container spacing={2}>
-                      <Grid item xs={6}>
-                        <Typography variant="caption" color="text.secondary" fontWeight={600}>
+                      <Grid size={{ xs: 6 }}>
+                        <Typography
+                          variant="caption"
+                          color="text.secondary"
+                          fontWeight={600}
+                        >
                           HEIGHT
                         </Typography>
-                        <Typography variant="h6" fontWeight={700} sx={{ mt: 0.5 }}>
+                        <Typography
+                          variant="h6"
+                          fontWeight={700}
+                          sx={{ mt: 0.5 }}
+                        >
                           170 cm
                         </Typography>
                       </Grid>
-                      <Grid item xs={6}>
-                        <Typography variant="caption" color="text.secondary" fontWeight={600}>
+                      <Grid size={{ xs: 6 }}>
+                        <Typography
+                          variant="caption"
+                          color="text.secondary"
+                          fontWeight={600}
+                        >
                           WEIGHT
                         </Typography>
-                        <Typography variant="h6" fontWeight={700} sx={{ mt: 0.5 }}>
+                        <Typography
+                          variant="h6"
+                          fontWeight={700}
+                          sx={{ mt: 0.5 }}
+                        >
                           65 kg
                         </Typography>
                       </Grid>
@@ -986,7 +1224,7 @@ const Profile = () => {
                 </Paper>
               </Grid>
 
-              <Grid item xs={12} md={6}>
+              <Grid size={{ xs: 12, md: 6 }}>
                 <Paper sx={{ p: 4, borderRadius: 3, height: "100%" }}>
                   <Typography variant="h6" fontWeight={800} mb={3}>
                     Emergency Contact
@@ -997,10 +1235,18 @@ const Profile = () => {
                       p: 3,
                       borderRadius: 2,
                       bgcolor: alpha(theme.palette.warning.main, 0.1),
-                      border: `2px solid ${alpha(theme.palette.warning.main, 0.3)}`,
+                      border: `2px solid ${alpha(
+                        theme.palette.warning.main,
+                        0.3
+                      )}`,
                     }}
                   >
-                    <Stack direction="row" spacing={2} alignItems="center" mb={2}>
+                    <Stack
+                      direction="row"
+                      spacing={2}
+                      alignItems="center"
+                      mb={2}
+                    >
                       <Box
                         sx={{
                           width: 48,
@@ -1015,7 +1261,11 @@ const Profile = () => {
                         <IconAlertCircle size={24} color="white" />
                       </Box>
                       <Box>
-                        <Typography variant="body2" color="text.secondary" fontWeight={600}>
+                        <Typography
+                          variant="body2"
+                          color="text.secondary"
+                          fontWeight={600}
+                        >
                           Emergency Contact
                         </Typography>
                         <Typography variant="h6" fontWeight={800}>
@@ -1027,33 +1277,58 @@ const Profile = () => {
                 </Paper>
               </Grid>
 
-              <Grid item xs={12}>
+              <Grid size={{ xs: 12 }}>
                 <Paper sx={{ p: 4, borderRadius: 3 }}>
                   <Typography variant="h6" fontWeight={800} mb={3}>
                     Allergies & Medical Conditions
                   </Typography>
 
                   <Grid container spacing={3}>
-                    <Grid item xs={12} md={6}>
+                    <Grid size={{ xs: 12, md: 6 }}>
                       <Box>
-                        <Typography variant="caption" color="text.secondary" fontWeight={600}>
+                        <Typography
+                          variant="caption"
+                          color="text.secondary"
+                          fontWeight={600}
+                        >
                           ALLERGIES
                         </Typography>
                         <Box sx={{ mt: 1 }}>
-                          <Stack direction="row" spacing={1} flexWrap="wrap" gap={1}>
-                            <Chip label="Peanuts" color="error" variant="outlined" />
-                            <Chip label="Dust" color="error" variant="outlined" />
+                          <Stack
+                            direction="row"
+                            spacing={1}
+                            flexWrap="wrap"
+                            gap={1}
+                          >
+                            <Chip
+                              label="Peanuts"
+                              color="error"
+                              variant="outlined"
+                            />
+                            <Chip
+                              label="Dust"
+                              color="error"
+                              variant="outlined"
+                            />
                           </Stack>
                         </Box>
                       </Box>
                     </Grid>
 
-                    <Grid item xs={12} md={6}>
+                    <Grid size={{ xs: 12, md: 6 }}>
                       <Box>
-                        <Typography variant="caption" color="text.secondary" fontWeight={600}>
+                        <Typography
+                          variant="caption"
+                          color="text.secondary"
+                          fontWeight={600}
+                        >
                           MEDICAL CONDITIONS
                         </Typography>
-                        <Typography variant="body1" fontWeight={600} sx={{ mt: 1 }}>
+                        <Typography
+                          variant="body1"
+                          fontWeight={600}
+                          sx={{ mt: 1 }}
+                        >
                           None reported
                         </Typography>
                       </Box>
@@ -1067,16 +1342,25 @@ const Profile = () => {
           {/* Documents Tab - NEW */}
           {activeTab === 3 && (
             <Grid container spacing={3}>
-              <Grid item xs={12}>
+              <Grid size={{ xs: 12 }}>
                 <Paper sx={{ p: 4, borderRadius: 3 }}>
-                  <Stack direction="row" justifyContent="space-between" alignItems="center" mb={3}>
+                  <Stack
+                    direction="row"
+                    justifyContent="space-between"
+                    alignItems="center"
+                    mb={3}
+                  >
                     <Typography variant="h5" fontWeight={800}>
                       Uploaded Documents
                     </Typography>
                     <Button
                       variant="contained"
                       startIcon={<IconUpload size={18} />}
-                      sx={{ borderRadius: 2, textTransform: "none", fontWeight: 600 }}
+                      sx={{
+                        borderRadius: 2,
+                        textTransform: "none",
+                        fontWeight: 600,
+                      }}
                     >
                       Upload Document
                     </Button>
@@ -1086,10 +1370,16 @@ const Profile = () => {
                     <Table>
                       <TableHead>
                         <TableRow>
-                          <TableCell sx={{ fontWeight: 700 }}>Document Type</TableCell>
+                          <TableCell sx={{ fontWeight: 700 }}>
+                            Document Type
+                          </TableCell>
                           <TableCell sx={{ fontWeight: 700 }}>Status</TableCell>
-                          <TableCell sx={{ fontWeight: 700 }}>Uploaded Date</TableCell>
-                          <TableCell sx={{ fontWeight: 700 }}>Actions</TableCell>
+                          <TableCell sx={{ fontWeight: 700 }}>
+                            Uploaded Date
+                          </TableCell>
+                          <TableCell sx={{ fontWeight: 700 }}>
+                            Actions
+                          </TableCell>
                         </TableRow>
                       </TableHead>
                       <TableBody>
@@ -1121,21 +1411,33 @@ const Profile = () => {
                         ].map((doc, idx) => (
                           <TableRow key={idx} hover>
                             <TableCell>
-                              <Stack direction="row" spacing={2} alignItems="center">
+                              <Stack
+                                direction="row"
+                                spacing={2}
+                                alignItems="center"
+                              >
                                 <Box
                                   sx={{
                                     width: 40,
                                     height: 40,
                                     borderRadius: 2,
-                                    bgcolor: alpha(theme.palette.primary.main, 0.1),
+                                    bgcolor: alpha(
+                                      theme.palette.primary.main,
+                                      0.1
+                                    ),
                                     display: "flex",
                                     alignItems: "center",
                                     justifyContent: "center",
                                   }}
                                 >
-                                  <doc.icon size={20} color={theme.palette.primary.main} />
+                                  <doc.icon
+                                    size={20}
+                                    color={theme.palette.primary.main}
+                                  />
                                 </Box>
-                                <Typography fontWeight={600}>{doc.type}</Typography>
+                                <Typography fontWeight={600}>
+                                  {doc.type}
+                                </Typography>
                               </Stack>
                             </TableCell>
                             <TableCell>
@@ -1158,7 +1460,10 @@ const Profile = () => {
                               )}
                             </TableCell>
                             <TableCell>
-                              <Typography variant="body2" color="text.secondary">
+                              <Typography
+                                variant="body2"
+                                color="text.secondary"
+                              >
                                 {doc.date}
                               </Typography>
                             </TableCell>
@@ -1181,7 +1486,7 @@ const Profile = () => {
               </Grid>
 
               {/* Document Upload Guidelines */}
-              <Grid item xs={12}>
+              <Grid size={{ xs: 12 }}>
                 <Paper
                   sx={{
                     p: 3,
@@ -1206,7 +1511,11 @@ const Profile = () => {
                       <IconAlertCircle size={20} color="white" />
                     </Box>
                     <Box>
-                      <Typography variant="subtitle1" fontWeight={700} gutterBottom>
+                      <Typography
+                        variant="subtitle1"
+                        fontWeight={700}
+                        gutterBottom
+                      >
                         Document Upload Guidelines
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
@@ -1228,7 +1537,7 @@ const Profile = () => {
           {activeTab === 4 && (
             <Grid container spacing={3}>
               {/* Balance Card */}
-              <Grid item xs={12} md={4}>
+              <Grid size={{ xs: 12, md: 4 }}>
                 <Card
                   sx={{
                     background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.secondary.main} 100%)`,
@@ -1257,9 +1566,17 @@ const Profile = () => {
 
                   <Stack spacing={3} sx={{ position: "relative", zIndex: 1 }}>
                     <Box>
-                      <Stack direction="row" spacing={1} alignItems="center" mb={1}>
+                      <Stack
+                        direction="row"
+                        spacing={1}
+                        alignItems="center"
+                        mb={1}
+                      >
                         <IconWallet size={24} />
-                        <Typography variant="body2" sx={{ opacity: 0.9, fontWeight: 500 }}>
+                        <Typography
+                          variant="body2"
+                          sx={{ opacity: 0.9, fontWeight: 500 }}
+                        >
                           Available Balance
                         </Typography>
                       </Stack>
@@ -1268,7 +1585,9 @@ const Profile = () => {
                       </Typography>
                     </Box>
 
-                    <Divider sx={{ bgcolor: alpha(theme.palette.common.white, 0.3) }} />
+                    <Divider
+                      sx={{ bgcolor: alpha(theme.palette.common.white, 0.3) }}
+                    />
 
                     <Stack spacing={1.5}>
                       <Button
@@ -1312,9 +1631,9 @@ const Profile = () => {
               </Grid>
 
               {/* Quick Stats */}
-              <Grid item xs={12} md={8}>
+              <Grid size={{ xs: 12, md: 8 }}>
                 <Grid container spacing={3}>
-                  <Grid item xs={12} sm={4}>
+                  <Grid size={{ xs: 12, sm: 4 }}>
                     <Paper sx={{ p: 3, borderRadius: 3, textAlign: "center" }}>
                       <Box
                         sx={{
@@ -1329,18 +1648,29 @@ const Profile = () => {
                           mb: 2,
                         }}
                       >
-                        <IconArrowDown size={28} color={theme.palette.success.main} />
+                        <IconArrowDown
+                          size={28}
+                          color={theme.palette.success.main}
+                        />
                       </Box>
-                      <Typography variant="h5" fontWeight={900} color="success.main">
+                      <Typography
+                        variant="h5"
+                        fontWeight={900}
+                        color="success.main"
+                      >
                         $300
                       </Typography>
-                      <Typography variant="body2" color="text.secondary" fontWeight={600}>
+                      <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        fontWeight={600}
+                      >
                         Total Credits
                       </Typography>
                     </Paper>
                   </Grid>
 
-                  <Grid item xs={12} sm={4}>
+                  <Grid size={{ xs: 12, sm: 4 }}>
                     <Paper sx={{ p: 3, borderRadius: 3, textAlign: "center" }}>
                       <Box
                         sx={{
@@ -1355,18 +1685,29 @@ const Profile = () => {
                           mb: 2,
                         }}
                       >
-                        <IconArrowUp size={28} color={theme.palette.error.main} />
+                        <IconArrowUp
+                          size={28}
+                          color={theme.palette.error.main}
+                        />
                       </Box>
-                      <Typography variant="h5" fontWeight={900} color="error.main">
+                      <Typography
+                        variant="h5"
+                        fontWeight={900}
+                        color="error.main"
+                      >
                         $150
                       </Typography>
-                      <Typography variant="body2" color="text.secondary" fontWeight={600}>
+                      <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        fontWeight={600}
+                      >
                         Total Debits
                       </Typography>
                     </Paper>
                   </Grid>
 
-                  <Grid item xs={12} sm={4}>
+                  <Grid size={{ xs: 12, sm: 4 }}>
                     <Paper sx={{ p: 3, borderRadius: 3, textAlign: "center" }}>
                       <Box
                         sx={{
@@ -1383,10 +1724,18 @@ const Profile = () => {
                       >
                         <IconClock size={28} color={theme.palette.info.main} />
                       </Box>
-                      <Typography variant="h5" fontWeight={900} color="info.main">
+                      <Typography
+                        variant="h5"
+                        fontWeight={900}
+                        color="info.main"
+                      >
                         12
                       </Typography>
-                      <Typography variant="body2" color="text.secondary" fontWeight={600}>
+                      <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        fontWeight={600}
+                      >
                         Transactions
                       </Typography>
                     </Paper>
@@ -1395,9 +1744,14 @@ const Profile = () => {
               </Grid>
 
               {/* Payment Methods */}
-              <Grid item xs={12} md={6}>
+              <Grid size={{ xs: 12, md: 6 }}>
                 <Paper sx={{ p: 4, borderRadius: 3 }}>
-                  <Stack direction="row" justifyContent="space-between" alignItems="center" mb={3}>
+                  <Stack
+                    direction="row"
+                    justifyContent="space-between"
+                    alignItems="center"
+                    mb={3}
+                  >
                     <Typography variant="h6" fontWeight={800}>
                       Payment Methods
                     </Typography>
@@ -1449,7 +1803,10 @@ const Profile = () => {
                       sx={{
                         p: 3,
                         borderRadius: 2,
-                        border: `1px solid ${alpha(theme.palette.divider, 0.5)}`,
+                        border: `1px solid ${alpha(
+                          theme.palette.divider,
+                          0.5
+                        )}`,
                       }}
                     >
                       <Stack direction="row" spacing={2} alignItems="center">
@@ -1464,7 +1821,10 @@ const Profile = () => {
                             justifyContent: "center",
                           }}
                         >
-                          <IconBuildingBank size={24} color={theme.palette.info.main} />
+                          <IconBuildingBank
+                            size={24}
+                            color={theme.palette.info.main}
+                          />
                         </Box>
                         <Box sx={{ flex: 1 }}>
                           <Typography variant="body1" fontWeight={700}>
@@ -1481,7 +1841,7 @@ const Profile = () => {
               </Grid>
 
               {/* Transaction History */}
-              <Grid item xs={12} md={6}>
+              <Grid size={{ xs: 12, md: 6 }}>
                 <Paper sx={{ p: 4, borderRadius: 3 }}>
                   <Typography variant="h6" fontWeight={800} mb={3}>
                     Recent Transactions
@@ -1555,11 +1915,17 @@ const Profile = () => {
                             primary={transaction.title}
                             secondary={
                               <Box>
-                                <Typography variant="caption" color="text.secondary">
+                                <Typography
+                                  variant="caption"
+                                  color="text.secondary"
+                                >
                                   {transaction.subtitle}
                                 </Typography>
                                 <br />
-                                <Typography variant="caption" color="text.secondary">
+                                <Typography
+                                  variant="caption"
+                                  color="text.secondary"
+                                >
                                   {transaction.date}
                                 </Typography>
                               </Box>
@@ -1569,7 +1935,11 @@ const Profile = () => {
                           <Typography
                             variant="h6"
                             fontWeight={900}
-                            color={transaction.type === "credit" ? "success.main" : "error.main"}
+                            color={
+                              transaction.type === "credit"
+                                ? "success.main"
+                                : "error.main"
+                            }
                           >
                             {transaction.amount}
                           </Typography>
@@ -1599,7 +1969,7 @@ const Profile = () => {
           {activeTab === 5 && (
             <Grid container spacing={3}>
               {/* Referral Code Card */}
-              <Grid item xs={12} md={4}>
+              <Grid size={{ xs: 12, md: 4 }}>
                 <Card
                   sx={{
                     background: `linear-gradient(135deg, ${theme.palette.success.light} 0%, ${theme.palette.success.main} 100%)`,
@@ -1610,9 +1980,17 @@ const Profile = () => {
                 >
                   <Stack spacing={3}>
                     <Box>
-                      <Stack direction="row" spacing={1} alignItems="center" mb={2}>
+                      <Stack
+                        direction="row"
+                        spacing={1}
+                        alignItems="center"
+                        mb={2}
+                      >
                         <IconGift size={24} />
-                        <Typography variant="body2" sx={{ opacity: 0.9, fontWeight: 500 }}>
+                        <Typography
+                          variant="body2"
+                          sx={{ opacity: 0.9, fontWeight: 500 }}
+                        >
                           Your Referral Code
                         </Typography>
                       </Stack>
@@ -1625,7 +2003,11 @@ const Profile = () => {
                           textAlign: "center",
                         }}
                       >
-                        <Typography variant="h4" fontWeight={900} letterSpacing={2}>
+                        <Typography
+                          variant="h4"
+                          fontWeight={900}
+                          letterSpacing={2}
+                        >
                           {userReferralCode}
                         </Typography>
                       </Box>
@@ -1650,7 +2032,9 @@ const Profile = () => {
                       Copy Code
                     </Button>
 
-                    <Divider sx={{ bgcolor: alpha(theme.palette.common.white, 0.3) }} />
+                    <Divider
+                      sx={{ bgcolor: alpha(theme.palette.common.white, 0.3) }}
+                    />
 
                     <Box sx={{ textAlign: "center" }}>
                       <Typography variant="h3" fontWeight={900}>
@@ -1665,9 +2049,9 @@ const Profile = () => {
               </Grid>
 
               {/* Referral Stats */}
-              <Grid item xs={12} md={8}>
+              <Grid size={{ xs: 12, md: 8 }}>
                 <Grid container spacing={3}>
-                  <Grid item xs={12} sm={4}>
+                  <Grid size={{ xs: 12, sm: 4 }}>
                     <Paper sx={{ p: 3, borderRadius: 3, textAlign: "center" }}>
                       <Box
                         sx={{
@@ -1682,18 +2066,25 @@ const Profile = () => {
                           mb: 2,
                         }}
                       >
-                        <IconUsers size={28} color={theme.palette.primary.main} />
+                        <IconUsers
+                          size={28}
+                          color={theme.palette.primary.main}
+                        />
                       </Box>
                       <Typography variant="h5" fontWeight={900} color="primary">
                         3
                       </Typography>
-                      <Typography variant="body2" color="text.secondary" fontWeight={600}>
+                      <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        fontWeight={600}
+                      >
                         Active Referrals
                       </Typography>
                     </Paper>
                   </Grid>
 
-                  <Grid item xs={12} sm={4}>
+                  <Grid size={{ xs: 12, sm: 4 }}>
                     <Paper sx={{ p: 3, borderRadius: 3, textAlign: "center" }}>
                       <Box
                         sx={{
@@ -1708,18 +2099,29 @@ const Profile = () => {
                           mb: 2,
                         }}
                       >
-                        <IconCoin size={28} color={theme.palette.success.main} />
+                        <IconCoin
+                          size={28}
+                          color={theme.palette.success.main}
+                        />
                       </Box>
-                      <Typography variant="h5" fontWeight={900} color="success.main">
+                      <Typography
+                        variant="h5"
+                        fontWeight={900}
+                        color="success.main"
+                      >
                         150
                       </Typography>
-                      <Typography variant="body2" color="text.secondary" fontWeight={600}>
+                      <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        fontWeight={600}
+                      >
                         Points Earned
                       </Typography>
                     </Paper>
                   </Grid>
 
-                  <Grid item xs={12} sm={4}>
+                  <Grid size={{ xs: 12, sm: 4 }}>
                     <Paper sx={{ p: 3, borderRadius: 3, textAlign: "center" }}>
                       <Box
                         sx={{
@@ -1734,12 +2136,23 @@ const Profile = () => {
                           mb: 2,
                         }}
                       >
-                        <IconGift size={28} color={theme.palette.warning.main} />
+                        <IconGift
+                          size={28}
+                          color={theme.palette.warning.main}
+                        />
                       </Box>
-                      <Typography variant="h5" fontWeight={900} color="warning.main">
+                      <Typography
+                        variant="h5"
+                        fontWeight={900}
+                        color="warning.main"
+                      >
                         $50
                       </Typography>
-                      <Typography variant="body2" color="text.secondary" fontWeight={600}>
+                      <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        fontWeight={600}
+                      >
                         Rewards Earned
                       </Typography>
                     </Paper>
@@ -1748,7 +2161,7 @@ const Profile = () => {
               </Grid>
 
               {/* Referred Members List */}
-              <Grid item xs={12}>
+              <Grid size={{ xs: 12 }}>
                 <Paper sx={{ p: 4, borderRadius: 3 }}>
                   <Typography variant="h6" fontWeight={800} mb={3}>
                     Referred Members
@@ -1796,20 +2209,38 @@ const Profile = () => {
                             primary={member.name}
                             secondary={
                               <Box>
-                                <Typography variant="body2" color="text.secondary">
+                                <Typography
+                                  variant="body2"
+                                  color="text.secondary"
+                                >
                                   {member.email}
                                 </Typography>
-                                <Typography variant="caption" color="text.secondary">
+                                <Typography
+                                  variant="caption"
+                                  color="text.secondary"
+                                >
                                   Joined: {member.joinDate}
                                 </Typography>
                               </Box>
                             }
                             primaryTypographyProps={{ fontWeight: 700 }}
                           />
-                          <Stack direction="row" spacing={2} alignItems="center">
+                          <Stack
+                            direction="row"
+                            spacing={2}
+                            alignItems="center"
+                          >
                             <Chip
-                              label={member.status === "active" ? "Active" : "Pending"}
-                              color={member.status === "active" ? "success" : "warning"}
+                              label={
+                                member.status === "active"
+                                  ? "Active"
+                                  : "Pending"
+                              }
+                              color={
+                                member.status === "active"
+                                  ? "success"
+                                  : "warning"
+                              }
                               size="small"
                               sx={{ fontWeight: 600 }}
                             />
@@ -1821,7 +2252,11 @@ const Profile = () => {
                                 bgcolor: alpha(theme.palette.success.main, 0.1),
                               }}
                             >
-                              <Typography variant="h6" fontWeight={900} color="success.main">
+                              <Typography
+                                variant="h6"
+                                fontWeight={900}
+                                color="success.main"
+                              >
                                 {member.reward}
                               </Typography>
                             </Box>
@@ -1835,7 +2270,7 @@ const Profile = () => {
               </Grid>
 
               {/* Referral Rewards Info */}
-              <Grid item xs={12}>
+              <Grid size={{ xs: 12 }}>
                 <Paper
                   sx={{
                     p: 3,
@@ -1860,7 +2295,11 @@ const Profile = () => {
                       <IconGift size={20} color="white" />
                     </Box>
                     <Box>
-                      <Typography variant="subtitle1" fontWeight={700} gutterBottom>
+                      <Typography
+                        variant="subtitle1"
+                        fontWeight={700}
+                        gutterBottom
+                      >
                         Referral Rewards Program
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
@@ -1868,8 +2307,10 @@ const Profile = () => {
                         <br />
                         • Your friend gets $10 welcome bonus
                         <br />
-                        • Earn bonus points for every tour your referrals complete
-                        <br />• No limit on referrals - invite unlimited friends!
+                        • Earn bonus points for every tour your referrals
+                        complete
+                        <br />• No limit on referrals - invite unlimited
+                        friends!
                       </Typography>
                     </Box>
                   </Stack>
@@ -1938,9 +2379,10 @@ const Profile = () => {
                             "& .MuiSwitch-switchBase.Mui-checked": {
                               color: theme.palette.success.main,
                             },
-                            "& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track": {
-                              backgroundColor: theme.palette.success.main,
-                            },
+                            "& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track":
+                              {
+                                backgroundColor: theme.palette.success.main,
+                              },
                           }}
                         />
                       }
@@ -1957,13 +2399,19 @@ const Profile = () => {
                             justifyContent: "center",
                           }}
                         >
-                          <item.icon size={24} color={theme.palette.primary.main} />
+                          <item.icon
+                            size={24}
+                            color={theme.palette.primary.main}
+                          />
                         </Box>
                       </ListItemIcon>
                       <ListItemText
                         primary={item.title}
                         secondary={item.desc}
-                        primaryTypographyProps={{ fontWeight: 700, fontSize: "1.05rem" }}
+                        primaryTypographyProps={{
+                          fontWeight: 700,
+                          fontSize: "1.05rem",
+                        }}
                         secondaryTypographyProps={{ sx: { mt: 0.5 } }}
                       />
                     </ListItem>
@@ -1977,7 +2425,12 @@ const Profile = () => {
           {/* Tour History Tab - Enhanced */}
           {activeTab === 7 && (
             <Paper sx={{ p: 4, borderRadius: 3 }}>
-              <Stack direction="row" justifyContent="space-between" alignItems="center" mb={4}>
+              <Stack
+                direction="row"
+                justifyContent="space-between"
+                alignItems="center"
+                mb={4}
+              >
                 <Typography variant="h5" fontWeight={800}>
                   Tour History
                 </Typography>
@@ -2047,7 +2500,7 @@ const Profile = () => {
                     duration: "6 Days",
                   },
                 ].map((tour, idx) => (
-                  <Grid item xs={12} md={6} lg={4} key={idx}>
+                  <Grid size={{ xs: 12, md: 6, lg: 4 }} key={idx}>
                     <Card
                       sx={{
                         borderRadius: 3,
@@ -2055,7 +2508,10 @@ const Profile = () => {
                         transition: "transform 0.3s, box-shadow 0.3s",
                         "&:hover": {
                           transform: "translateY(-8px)",
-                          boxShadow: `0 12px 24px ${alpha(theme.palette.common.black, 0.15)}`,
+                          boxShadow: `0 12px 24px ${alpha(
+                            theme.palette.common.black,
+                            0.15
+                          )}`,
                         },
                       }}
                     >
@@ -2086,14 +2542,28 @@ const Profile = () => {
                         <Typography variant="h6" fontWeight={800} gutterBottom>
                           {tour.title}
                         </Typography>
-                        <Stack direction="row" spacing={1} alignItems="center" mb={2}>
-                          <IconMapPin size={16} color={theme.palette.text.secondary} />
+                        <Stack
+                          direction="row"
+                          spacing={1}
+                          alignItems="center"
+                          mb={2}
+                        >
+                          <IconMapPin
+                            size={16}
+                            color={theme.palette.text.secondary}
+                          />
                           <Typography variant="body2" color="text.secondary">
                             {tour.location}
                           </Typography>
                         </Stack>
 
-                        <Stack direction="row" spacing={1} flexWrap="wrap" gap={1} mb={2}>
+                        <Stack
+                          direction="row"
+                          spacing={1}
+                          flexWrap="wrap"
+                          gap={1}
+                          mb={2}
+                        >
                           <Chip
                             icon={<IconCalendar size={14} />}
                             label={tour.date}
@@ -2110,12 +2580,23 @@ const Profile = () => {
 
                         <Divider sx={{ my: 2 }} />
 
-                        <Stack direction="row" justifyContent="space-between" alignItems="center">
+                        <Stack
+                          direction="row"
+                          justifyContent="space-between"
+                          alignItems="center"
+                        >
                           <Box>
-                            <Typography variant="caption" color="text.secondary">
+                            <Typography
+                              variant="caption"
+                              color="text.secondary"
+                            >
                               Price Paid
                             </Typography>
-                            <Typography variant="h6" fontWeight={900} color="primary">
+                            <Typography
+                              variant="h6"
+                              fontWeight={900}
+                              color="primary"
+                            >
                               {tour.price}
                             </Typography>
                           </Box>
@@ -2124,7 +2605,11 @@ const Profile = () => {
                               <IconStar
                                 key={i}
                                 size={20}
-                                fill={i < tour.rating ? theme.palette.warning.main : "none"}
+                                fill={
+                                  i < tour.rating
+                                    ? theme.palette.warning.main
+                                    : "none"
+                                }
                                 color={
                                   i < tour.rating
                                     ? theme.palette.warning.main

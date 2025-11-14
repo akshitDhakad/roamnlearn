@@ -8,19 +8,15 @@ import {
   Paper,
   Chip,
   Avatar,
-  Rating,
   Divider,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
-  Card,
-  CardContent,
   IconButton,
   Stack,
   useTheme,
   alpha,
-  LinearProgress,
   Accordion,
   AccordionSummary,
   AccordionDetails,
@@ -32,19 +28,15 @@ import {
   IconUsers,
   IconStar,
   IconCheck,
-  IconX,
   IconHeart,
   IconHeartFilled,
   IconShare,
   IconChevronDown,
-  IconCalendar,
-  IconPlane,
   IconBed,
   IconCoffee,
   IconCamera,
   IconShieldCheck,
   IconLanguage,
-  IconWifi,
   IconAward,
   IconArrowLeft,
 } from "@tabler/icons-react";
@@ -56,7 +48,7 @@ import {
 const DestinationDetail = memo(() => {
   const theme = useTheme();
   const [isFavorite, setIsFavorite] = useState(false);
-  const [showAllPhotos, setShowAllPhotos] = useState(false);
+  const [, setShowAllPhotos] = useState(false);
   const [testOpen, setTestOpen] = useState(false);
 
   // Sample data - would come from API/route params
@@ -216,35 +208,7 @@ const DestinationDetail = memo(() => {
     ],
   };
 
-  const reviews = [
-    {
-      id: 1,
-      author: "Sarah Johnson",
-      avatar: "https://i.pravatar.cc/150?img=1",
-      rating: 5,
-      date: "March 2024",
-      comment:
-        "An absolutely incredible experience! Dr. Rossi's expertise brought Renaissance art to life. The itinerary was perfectly paced and every detail was well-organized.",
-    },
-    {
-      id: 2,
-      author: "Michael Chen",
-      avatar: "https://i.pravatar.cc/150?img=2",
-      rating: 5,
-      date: "February 2024",
-      comment:
-        "Best educational tour I've ever taken. The small group size allowed for great discussions and the accommodations were excellent.",
-    },
-    {
-      id: 3,
-      author: "Emma Williams",
-      avatar: "https://i.pravatar.cc/150?img=3",
-      rating: 4,
-      date: "January 2024",
-      comment:
-        "Wonderful tour with amazing art and culture. Only wish we had more free time to explore on our own.",
-    },
-  ];
+  // Reviews are intentionally omitted in this view to keep the page concise
 
   return (
     <Box sx={{ minHeight: "100vh", bgcolor: "background.default" }}>
@@ -690,7 +654,7 @@ const DestinationDetail = memo(() => {
                 Day-by-Day Learning Journey
               </Typography>
               <Stack spacing={2}>
-                {destination.itinerary.map((day, index) => (
+                {destination.itinerary.map((day) => (
                   <Accordion
                     key={day.day}
                     elevation={0}

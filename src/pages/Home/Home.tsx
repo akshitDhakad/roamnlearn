@@ -24,10 +24,9 @@ import {
   IconArrowRight,
   IconPlayerPlay,
   IconSparkles,
-  IconTrendingUp,
   IconCheckbox,
 } from "@tabler/icons-react";
-import { APP_NAME, APP_DESCRIPTION } from "../../constants/constants";
+import { APP_NAME } from "../../constants/constants";
 
 /**
  * Modern home page component for educational tour website
@@ -75,38 +74,6 @@ const Home = memo(() => {
       image:
         "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=600&h=400&fit=crop",
       description: "Discover innovation and cutting-edge technology",
-    },
-  ];
-
-  // Why choose us features
-  const features = [
-    {
-      icon: IconShield,
-      title: "Safety First",
-      description:
-        "Comprehensive safety protocols and 24/7 support for all travelers",
-      color: theme.palette.primary.main,
-    },
-    {
-      icon: IconSchool,
-      title: "Expert Guides",
-      description:
-        "Learn from certified educators and local experts passionate about sharing knowledge",
-      color: theme.palette.secondary.main,
-    },
-    {
-      icon: IconHeart,
-      title: "Authentic Experiences",
-      description:
-        "Immerse yourself in local culture with carefully curated educational activities",
-      color: "#2e7d32",
-    },
-    {
-      icon: IconAward,
-      title: "Certified Programs",
-      description:
-        "Earn certificates and recognition for your educational journey",
-      color: "#0288d1",
     },
   ];
 

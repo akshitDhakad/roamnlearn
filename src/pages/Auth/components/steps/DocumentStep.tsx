@@ -14,16 +14,9 @@ import {
   alpha,
   useTheme,
   Paper,
-  Grid,
 } from "@mui/material";
-import {
-  IconFileUpload,
-  IconArrowLeft,
-  IconId,
-  IconCamera,
-  IconVideo,
-  IconCheck,
-} from "@tabler/icons-react";
+import { Grid } from "@mui/material";
+import { IconArrowLeft, IconId, IconCamera, IconVideo, IconCheck } from "@tabler/icons-react";
 import { submitDocuments } from "../../../../services/auth";
 import type { SignUpData } from "../SignUp";
 

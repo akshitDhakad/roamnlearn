@@ -7,7 +7,6 @@ import {
   Stack,
   Alert,
   CircularProgress,
-  Grid,
   FormControl,
   InputLabel,
   Select,
@@ -16,6 +15,7 @@ import {
   useTheme,
   Divider,
 } from "@mui/material";
+import { Grid } from "@mui/material";
 import { IconArrowLeft } from "@tabler/icons-react";
 import { submitProfile } from "../../../../services/auth";
 import type { SignUpData } from "../SignUp";
@@ -159,7 +159,7 @@ const ProfileStep = ({ data, onUpdate, onBack, onNext }: ProfileStepProps) => {
             Address
           </Typography>
           <Grid container spacing={2.5}>
-            <Grid item xs={12} sm={6}>
+            <Grid xs={12} sm={6}>
               <TextField
                 label="House Number"
                 value={data.houseNumber}
@@ -169,7 +169,7 @@ const ProfileStep = ({ data, onUpdate, onBack, onNext }: ProfileStepProps) => {
                 placeholder="Building/Apt number"
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid xs={12} sm={6}>
               <TextField
                 label="Street"
                 value={data.street}

@@ -1,10 +1,9 @@
-import { memo, useState } from "react";
+import { memo, useState, type ReactNode } from "react";
 import {
   Box,
   Container,
   Typography,
   Paper,
-  Grid,
   Button,
   Card,
   CardContent,
@@ -17,20 +16,17 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
-  Chip,
   Stack,
   TextField,
   InputAdornment,
 } from "@mui/material";
+import { Grid } from "@mui/material";
 import {
   IconBook,
   IconChevronDown,
-  IconCheck,
   IconSearch,
-  IconFileText,
   IconUsers,
   IconCalendar,
-  IconCreditCard,
   IconMap,
   IconShield,
   IconHeadset,
@@ -45,7 +41,7 @@ import {
  */
 interface DocCategory {
   id: string;
-  icon: JSX.Element;
+  icon: ReactNode;
   title: string;
   description: string;
   guides: DocGuide[];

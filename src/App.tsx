@@ -13,6 +13,7 @@ import {
   HelpCenter,
   Auth,
   Profile,
+  AdminDashboard,
 } from "./pages";
 import { Destinations, DestinationDetail } from "./pages/Destinations";
 
@@ -63,6 +64,8 @@ function App() {
         return <Contact />;
       case "auth":
         return <Auth />;
+      case "admin":
+        return <AdminDashboard />;
       case "profile":
         return <Profile />;
       case "privacy":
@@ -90,12 +93,12 @@ function App() {
   };
 
   // Pages that should NOT have navbar/footer
-  const isAuthPage = currentPage === "auth";
+  const isStandalonePage = currentPage === "auth" || currentPage === "admin";
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      {isAuthPage ? (
+      {isStandalonePage ? (
         // Auth page without Layout (no navbar/footer)
         renderPage()
       ) : (

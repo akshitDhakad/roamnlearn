@@ -5,7 +5,14 @@
  */
 
 // Layout Components
-export { Header, Footer, Layout, Sidebar } from "./layout";
+export {
+  Header,
+  Footer,
+  Layout,
+  Sidebar,
+  AdminLayout,
+  AdminSidebar,
+} from "./layout";
 
 // Common Components
 // export { default as Button } from "./common/Button";

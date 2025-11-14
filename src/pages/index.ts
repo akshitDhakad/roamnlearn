@@ -13,3 +13,4 @@ export { default as HelpCenter } from "./HelpCenter/HelpCenter";
 export { default as Destinations } from "./Destinations/Destinations";
 export { default as Auth } from "./Auth/Auth";
 export { default as Profile } from "./Profile/Profile";
+export { default as AdminDashboard } from "./Admin/AdminDashboard";

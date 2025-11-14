@@ -31,8 +31,6 @@ import {
 import {
   IconSearch,
   IconMapPin,
-  IconClock,
-  IconUsers,
   IconFilter,
   IconX,
   IconArrowRight,

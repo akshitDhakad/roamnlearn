@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { Box, Stepper, Step, StepLabel, alpha, useTheme, Container } from "@mui/material";
+import { Box, Stepper, Step, StepLabel, useTheme } from "@mui/material";
 import BasicInfoStep from "./steps/BasicInfoStep";
 import OtpVerificationStep from "./steps/OtpVerificationStep";
 import ProfileStep from "./steps/ProfileStep";

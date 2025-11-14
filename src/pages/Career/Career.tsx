@@ -9,7 +9,6 @@ import {
   Chip,
   Card,
   CardContent,
-  CardActions,
   useTheme,
   alpha,
   Stack,
@@ -19,7 +18,6 @@ import {
   IconBriefcase,
   IconMapPin,
   IconClock,
-  IconCurrencyDollar,
   IconUsers,
   IconHeart,
   IconTrophy,
@@ -27,7 +25,6 @@ import {
   IconBulb,
   IconWorld,
   IconSchool,
-  IconDevices,
   IconArrowRight,
   IconCheck,
 } from "@tabler/icons-react";

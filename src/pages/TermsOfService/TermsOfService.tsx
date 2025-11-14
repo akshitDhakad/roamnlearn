@@ -628,11 +628,12 @@ const TermsOfService = memo(() => {
               </Typography>
             </Box>
             <Box sx={{ display: "flex", alignItems: "flex-start", gap: 2 }}>
-              <IconFileText
-                size={20}
-                color={theme.palette.primary.main}
-                sx={{ mt: 0.5 }}
-              />
+              <Box sx={{ mt: 0.5, lineHeight: 0 }}>
+                <IconFileText
+                  size={20}
+                  color={theme.palette.primary.main}
+                />
+              </Box>
               <Typography variant="body1">
                 Mailing Address:
                 <br />

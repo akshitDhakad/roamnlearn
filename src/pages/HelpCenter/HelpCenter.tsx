@@ -1,10 +1,9 @@
-import { memo, useState } from "react";
+import { memo, useState, type ReactNode } from "react";
 import {
   Box,
   Container,
   Typography,
   Paper,
-  Grid,
   Button,
   Card,
   CardContent,
@@ -19,6 +18,7 @@ import {
   Divider,
   Chip,
 } from "@mui/material";
+import { Grid } from "@mui/material";
 import {
   IconHeadset,
   IconChevronDown,
@@ -30,7 +30,6 @@ import {
   IconBook,
   IconHelpCircle,
   IconAlertCircle,
-  IconCreditCard,
   IconCalendar,
   IconMapPin,
   IconFileText,
@@ -41,7 +40,7 @@ import {
  */
 interface FAQCategory {
   id: string;
-  icon: JSX.Element;
+  icon: ReactNode;
   title: string;
   faqs: FAQ[];
 }

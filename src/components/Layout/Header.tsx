@@ -200,7 +200,8 @@ const Header = memo(
 
     const handleDashboardClick = useCallback(() => {
       handleUserMenuClose();
-      console.log("Navigate to dashboard");
+      // Temporary hash-based navigation until React Router is implemented
+      window.location.hash = "admin";
     }, [handleUserMenuClose]);
 
     const handleLogoutClick = useCallback(() => {
