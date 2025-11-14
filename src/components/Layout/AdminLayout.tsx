@@ -31,10 +31,10 @@ const AdminLayout = ({
 }: AdminLayoutProps) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-  const [sidebarOpen, setSidebarOpen] = useState(!isMobile);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useEffect(() => {
-    setSidebarOpen(!isMobile);
+    setSidebarOpen(false);
   }, [isMobile]);
 
   const handleMenuClick = () => setSidebarOpen(!sidebarOpen);
@@ -45,7 +45,10 @@ const AdminLayout = ({
       sx={{
         display: "flex",
         minHeight: "100vh",
+        height: "100vh",
+        maxHeight: "100vh",
         backgroundColor: "background.default",
+        overflow: "hidden",
       }}
     >
       <AdminSidebar
@@ -62,10 +65,10 @@ const AdminLayout = ({
           flexDirection: "column",
           minWidth: 0,
           width: "100%",
-          transition: theme.transitions.create("margin", {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.enteringScreen,
-          }),
+          marginLeft: 0,
+          height: "100vh",
+          maxHeight: "100vh",
+          overflow: "hidden",
         }}
       >
         <AppBar
@@ -149,9 +152,20 @@ const AdminLayout = ({
             py: { xs: 2, md: 3 },
             px: { xs: 2, md: 3 },
             width: "100%",
+            overflowY: "auto",
             overflowX: "hidden",
             boxSizing: "border-box",
             backgroundColor: "background.default",
+            "&::-webkit-scrollbar": {
+              width: "8px",
+            },
+            "&::-webkit-scrollbar-thumb": {
+              backgroundColor: "rgba(0, 0, 0, 0.2)",
+              borderRadius: "4px",
+            },
+            "&::-webkit-scrollbar-thumb:hover": {
+              backgroundColor: "rgba(0, 0, 0, 0.3)",
+            },
           }}
         >
           {children}
