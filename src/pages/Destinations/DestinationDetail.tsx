@@ -384,7 +384,9 @@ const DestinationDetail = memo(() => {
                     {destination.title}
                   </Typography>
                   <Stack direction="row" spacing={2} flexWrap="wrap">
-                    <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+                    <Box
+                      sx={{ display: "flex", alignItems: "center", gap: 0.5 }}
+                    >
                       <IconStar size={18} fill="#FFB800" color="#FFB800" />
                       <Typography variant="body2" fontWeight={600}>
                         {destination.rating}
@@ -393,8 +395,13 @@ const DestinationDetail = memo(() => {
                         ({destination.reviews} students)
                       </Typography>
                     </Box>
-                    <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
-                      <IconMapPin size={18} color={theme.palette.text.secondary} />
+                    <Box
+                      sx={{ display: "flex", alignItems: "center", gap: 0.5 }}
+                    >
+                      <IconMapPin
+                        size={18}
+                        color={theme.palette.text.secondary}
+                      />
                       <Typography variant="body2" color="text.secondary">
                         {destination.location}
                       </Typography>
@@ -414,7 +421,10 @@ const DestinationDetail = memo(() => {
                     }}
                   >
                     {isFavorite ? (
-                      <IconHeartFilled size={20} color={theme.palette.error.main} />
+                      <IconHeartFilled
+                        size={20}
+                        color={theme.palette.error.main}
+                      />
                     ) : (
                       <IconHeart size={20} />
                     )}
@@ -446,8 +456,16 @@ const DestinationDetail = memo(() => {
                 <Grid container spacing={2}>
                   <Grid size={{ xs: 6, sm: 3 }}>
                     <Box sx={{ textAlign: "center" }}>
-                      <IconClock size={24} color={theme.palette.primary.main} style={{ marginBottom: 8 }} />
-                      <Typography variant="caption" color="text.secondary" sx={{ display: "block" }}>
+                      <IconClock
+                        size={24}
+                        color={theme.palette.primary.main}
+                        style={{ marginBottom: 8 }}
+                      />
+                      <Typography
+                        variant="caption"
+                        color="text.secondary"
+                        sx={{ display: "block" }}
+                      >
                         Duration
                       </Typography>
                       <Typography variant="body2" fontWeight={600}>
@@ -457,8 +475,16 @@ const DestinationDetail = memo(() => {
                   </Grid>
                   <Grid size={{ xs: 6, sm: 3 }}>
                     <Box sx={{ textAlign: "center" }}>
-                      <IconUsers size={24} color={theme.palette.primary.main} style={{ marginBottom: 8 }} />
-                      <Typography variant="caption" color="text.secondary" sx={{ display: "block" }}>
+                      <IconUsers
+                        size={24}
+                        color={theme.palette.primary.main}
+                        style={{ marginBottom: 8 }}
+                      />
+                      <Typography
+                        variant="caption"
+                        color="text.secondary"
+                        sx={{ display: "block" }}
+                      >
                         Group Size
                       </Typography>
                       <Typography variant="body2" fontWeight={600}>
@@ -468,8 +494,16 @@ const DestinationDetail = memo(() => {
                   </Grid>
                   <Grid size={{ xs: 6, sm: 3 }}>
                     <Box sx={{ textAlign: "center" }}>
-                      <IconLanguage size={24} color={theme.palette.primary.main} style={{ marginBottom: 8 }} />
-                      <Typography variant="caption" color="text.secondary" sx={{ display: "block" }}>
+                      <IconLanguage
+                        size={24}
+                        color={theme.palette.primary.main}
+                        style={{ marginBottom: 8 }}
+                      />
+                      <Typography
+                        variant="caption"
+                        color="text.secondary"
+                        sx={{ display: "block" }}
+                      >
                         Language
                       </Typography>
                       <Typography variant="body2" fontWeight={600}>
@@ -479,8 +513,16 @@ const DestinationDetail = memo(() => {
                   </Grid>
                   <Grid size={{ xs: 6, sm: 3 }}>
                     <Box sx={{ textAlign: "center" }}>
-                      <IconAward size={24} color={theme.palette.primary.main} style={{ marginBottom: 8 }} />
-                      <Typography variant="caption" color="text.secondary" sx={{ display: "block" }}>
+                      <IconAward
+                        size={24}
+                        color={theme.palette.primary.main}
+                        style={{ marginBottom: 8 }}
+                      />
+                      <Typography
+                        variant="caption"
+                        color="text.secondary"
+                        sx={{ display: "block" }}
+                      >
                         Level
                       </Typography>
                       <Typography variant="body2" fontWeight={600}>
@@ -502,7 +544,12 @@ const DestinationDetail = memo(() => {
                 borderRadius: 2,
               }}
             >
-              <Typography variant="subtitle2" fontWeight={600} color="text.secondary" sx={{ mb: 2 }}>
+              <Typography
+                variant="subtitle2"
+                fontWeight={600}
+                color="text.secondary"
+                sx={{ mb: 2 }}
+              >
                 Your Tour Instructor
               </Typography>
               <Stack direction="row" spacing={2} alignItems="center">
@@ -514,11 +561,17 @@ const DestinationDetail = memo(() => {
                   <Typography variant="h6" fontWeight={700}>
                     {destination.host.name}
                   </Typography>
-                  <Typography variant="body2" color="text.secondary" sx={{ mb: 0.5 }}>
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    sx={{ mb: 0.5 }}
+                  >
                     {destination.host.title} · {destination.host.experience}
                   </Typography>
                   <Stack direction="row" spacing={2}>
-                    <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+                    <Box
+                      sx={{ display: "flex", alignItems: "center", gap: 0.5 }}
+                    >
                       <IconStar size={16} fill="#FFB800" color="#FFB800" />
                       <Typography variant="body2" fontWeight={600}>
                         {destination.host.rating}
@@ -570,8 +623,17 @@ const DestinationDetail = memo(() => {
                 <Typography variant="subtitle2" fontWeight={700} sx={{ mb: 1 }}>
                   Educational Focus
                 </Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7 }}>
-                  This tour is designed as an immersive educational experience that combines theoretical knowledge with practical application. Students will engage with primary sources, participate in expert-led discussions, and develop critical analysis skills essential for advanced study in art history and cultural studies.
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  sx={{ lineHeight: 1.7 }}
+                >
+                  This tour is designed as an immersive educational experience
+                  that combines theoretical knowledge with practical
+                  application. Students will engage with primary sources,
+                  participate in expert-led discussions, and develop critical
+                  analysis skills essential for advanced study in art history
+                  and cultural studies.
                 </Typography>
               </Paper>
             </Box>
@@ -608,8 +670,17 @@ const DestinationDetail = memo(() => {
                           },
                         }}
                       >
-                        <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
-                          <IconComponent size={20} color={theme.palette.primary.main} />
+                        <Box
+                          sx={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: 1.5,
+                          }}
+                        >
+                          <IconComponent
+                            size={20}
+                            color={theme.palette.primary.main}
+                          />
                           <Typography variant="body2" fontWeight={600}>
                             {item.skill}
                           </Typography>
@@ -748,7 +819,10 @@ const DestinationDetail = memo(() => {
                         {day.activities.map((activity, idx) => (
                           <ListItem key={idx} sx={{ py: 0.5, px: 0 }}>
                             <ListItemIcon sx={{ minWidth: 32 }}>
-                              <IconCheck size={18} color={theme.palette.primary.main} />
+                              <IconCheck
+                                size={18}
+                                color={theme.palette.primary.main}
+                              />
                             </ListItemIcon>
                             <ListItemText
                               primary={activity}
@@ -761,14 +835,24 @@ const DestinationDetail = memo(() => {
                         ))}
                       </List>
                       <Stack direction="row" spacing={3} flexWrap="wrap">
-                        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                          <IconCoffee size={18} color={theme.palette.text.secondary} />
+                        <Box
+                          sx={{ display: "flex", alignItems: "center", gap: 1 }}
+                        >
+                          <IconCoffee
+                            size={18}
+                            color={theme.palette.text.secondary}
+                          />
                           <Typography variant="caption" color="text.secondary">
                             <strong>Meals:</strong> {day.meals}
                           </Typography>
                         </Box>
-                        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                          <IconBed size={18} color={theme.palette.text.secondary} />
+                        <Box
+                          sx={{ display: "flex", alignItems: "center", gap: 1 }}
+                        >
+                          <IconBed
+                            size={18}
+                            color={theme.palette.text.secondary}
+                          />
                           <Typography variant="caption" color="text.secondary">
                             <strong>Stay:</strong> {day.accommodation}
                           </Typography>
@@ -809,7 +893,11 @@ const DestinationDetail = memo(() => {
                           justifyContent: "center",
                         }}
                       >
-                        <Typography variant="caption" fontWeight={700} color="primary">
+                        <Typography
+                          variant="caption"
+                          fontWeight={700}
+                          color="primary"
+                        >
                           {index + 1}
                         </Typography>
                       </Box>
@@ -857,7 +945,10 @@ const DestinationDetail = memo(() => {
                       ].map((item, index) => (
                         <ListItem key={index} sx={{ py: 0.5, px: 0 }}>
                           <ListItemIcon sx={{ minWidth: 32 }}>
-                            <IconCheck size={18} color={theme.palette.primary.main} />
+                            <IconCheck
+                              size={18}
+                              color={theme.palette.primary.main}
+                            />
                           </ListItemIcon>
                           <ListItemText
                             primary={item}
@@ -894,7 +985,10 @@ const DestinationDetail = memo(() => {
                       ].map((item, index) => (
                         <ListItem key={index} sx={{ py: 0.5, px: 0 }}>
                           <ListItemIcon sx={{ minWidth: 32 }}>
-                            <IconCheck size={18} color={theme.palette.primary.main} />
+                            <IconCheck
+                              size={18}
+                              color={theme.palette.primary.main}
+                            />
                           </ListItemIcon>
                           <ListItemText
                             primary={item}
@@ -936,10 +1030,19 @@ const DestinationDetail = memo(() => {
                   textAlign: "center",
                 }}
               >
-                <Typography variant="caption" color="text.secondary" sx={{ mb: 1, display: "block" }}>
+                <Typography
+                  variant="caption"
+                  color="text.secondary"
+                  sx={{ mb: 1, display: "block" }}
+                >
                   Tour Cost
                 </Typography>
-                <Stack direction="row" alignItems="center" justifyContent="center" spacing={1}>
+                <Stack
+                  direction="row"
+                  alignItems="center"
+                  justifyContent="center"
+                  spacing={1}
+                >
                   <Box
                     sx={{
                       width: 36,
@@ -959,7 +1062,11 @@ const DestinationDetail = memo(() => {
                     {destination.price.toLocaleString()}
                   </Typography>
                 </Stack>
-                <Typography variant="caption" color="text.secondary" sx={{ mt: 1, display: "block" }}>
+                <Typography
+                  variant="caption"
+                  color="text.secondary"
+                  sx={{ mt: 1, display: "block" }}
+                >
                   Coins required per student
                 </Typography>
               </Box>
@@ -969,8 +1076,13 @@ const DestinationDetail = memo(() => {
                 <Typography variant="h6" fontWeight={700} sx={{ mb: 1 }}>
                   Talent Test Required
                 </Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ mb: 3, lineHeight: 1.6 }}>
-                  Pass the talent test to qualify for this educational tour. Demonstrate your knowledge and earn your spot!
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  sx={{ mb: 3, lineHeight: 1.6 }}
+                >
+                  Pass the talent test to qualify for this educational tour.
+                  Demonstrate your knowledge and earn your spot!
                 </Typography>
 
                 <Stack spacing={1.5}>
@@ -1045,20 +1157,44 @@ const DestinationDetail = memo(() => {
               </Typography>
               <Stack spacing={1.5}>
                 <Box sx={{ display: "flex", alignItems: "start", gap: 1.5 }}>
-                  <IconShieldCheck size={18} color={theme.palette.primary.main} style={{ marginTop: 2 }} />
-                  <Typography variant="caption" color="text.secondary" sx={{ lineHeight: 1.6 }}>
+                  <IconShieldCheck
+                    size={18}
+                    color={theme.palette.primary.main}
+                    style={{ marginTop: 2 }}
+                  />
+                  <Typography
+                    variant="caption"
+                    color="text.secondary"
+                    sx={{ lineHeight: 1.6 }}
+                  >
                     Ensure you're prepared for the tour content
                   </Typography>
                 </Box>
                 <Box sx={{ display: "flex", alignItems: "start", gap: 1.5 }}>
-                  <IconAward size={18} color={theme.palette.primary.main} style={{ marginTop: 2 }} />
-                  <Typography variant="caption" color="text.secondary" sx={{ lineHeight: 1.6 }}>
+                  <IconAward
+                    size={18}
+                    color={theme.palette.primary.main}
+                    style={{ marginTop: 2 }}
+                  />
+                  <Typography
+                    variant="caption"
+                    color="text.secondary"
+                    sx={{ lineHeight: 1.6 }}
+                  >
                     Earn a certification upon completion
                   </Typography>
                 </Box>
                 <Box sx={{ display: "flex", alignItems: "start", gap: 1.5 }}>
-                  <IconUsers size={18} color={theme.palette.primary.main} style={{ marginTop: 2 }} />
-                  <Typography variant="caption" color="text.secondary" sx={{ lineHeight: 1.6 }}>
+                  <IconUsers
+                    size={18}
+                    color={theme.palette.primary.main}
+                    style={{ marginTop: 2 }}
+                  />
+                  <Typography
+                    variant="caption"
+                    color="text.secondary"
+                    sx={{ lineHeight: 1.6 }}
+                  >
                     Join a community of qualified learners
                   </Typography>
                 </Box>

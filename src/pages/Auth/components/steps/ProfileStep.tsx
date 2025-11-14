@@ -139,7 +139,9 @@ const ProfileStep = ({ data, onUpdate, onBack, onNext }: ProfileStepProps) => {
                   <MenuItem value="Male">Male</MenuItem>
                   <MenuItem value="Female">Female</MenuItem>
                   <MenuItem value="Other">Other</MenuItem>
-                  <MenuItem value="Prefer not to say">Prefer not to say</MenuItem>
+                  <MenuItem value="Prefer not to say">
+                    Prefer not to say
+                  </MenuItem>
                 </Select>
               </FormControl>
             </Grid>
@@ -290,9 +292,7 @@ const ProfileStep = ({ data, onUpdate, onBack, onNext }: ProfileStepProps) => {
               <TextField
                 label="Relationship"
                 value={data.guardianRelation}
-                onChange={(e) =>
-                  onUpdate({ guardianRelation: e.target.value })
-                }
+                onChange={(e) => onUpdate({ guardianRelation: e.target.value })}
                 disabled={loading}
                 fullWidth
                 placeholder="e.g., Father, Mother"
@@ -355,14 +355,21 @@ const ProfileStep = ({ data, onUpdate, onBack, onNext }: ProfileStepProps) => {
               transition: "all 0.3s",
               "&:hover": {
                 transform: "translateY(-2px)",
-                boxShadow: `0 6px 20px ${alpha(theme.palette.primary.main, 0.5)}`,
+                boxShadow: `0 6px 20px ${alpha(
+                  theme.palette.primary.main,
+                  0.5
+                )}`,
               },
               "&:active": {
                 transform: "translateY(0)",
               },
             }}
           >
-            {loading ? <CircularProgress size={24} color="inherit" /> : "Continue"}
+            {loading ? (
+              <CircularProgress size={24} color="inherit" />
+            ) : (
+              "Continue"
+            )}
           </Button>
         </Stack>
       </Stack>

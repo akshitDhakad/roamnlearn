@@ -16,7 +16,13 @@ import {
   Paper,
 } from "@mui/material";
 import { Grid } from "@mui/material";
-import { IconArrowLeft, IconId, IconCamera, IconVideo, IconCheck } from "@tabler/icons-react";
+import {
+  IconArrowLeft,
+  IconId,
+  IconCamera,
+  IconVideo,
+  IconCheck,
+} from "@tabler/icons-react";
 import { submitDocuments } from "../../../../services/auth";
 import type { SignUpData } from "../SignUp";
 
@@ -31,7 +37,12 @@ interface DocumentStepProps {
  * Step 3: Document Verification
  * Upload ID documents and verification photos/video
  */
-const DocumentStep = ({ data, onUpdate, onBack, onNext }: DocumentStepProps) => {
+const DocumentStep = ({
+  data,
+  onUpdate,
+  onBack,
+  onNext,
+}: DocumentStepProps) => {
   const theme = useTheme();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -154,8 +165,8 @@ const DocumentStep = ({ data, onUpdate, onBack, onNext }: DocumentStepProps) => 
 
       {/* Info Alert */}
       <Alert severity="info" sx={{ mb: 3, borderRadius: 2 }}>
-        Upload your identification documents for verification. This helps us ensure
-        a safe learning environment for all students.
+        Upload your identification documents for verification. This helps us
+        ensure a safe learning environment for all students.
       </Alert>
 
       {/* Form */}
@@ -292,7 +303,10 @@ const DocumentStep = ({ data, onUpdate, onBack, onNext }: DocumentStepProps) => 
               transition: "all 0.3s",
               "&:hover": {
                 transform: "translateY(-2px)",
-                boxShadow: `0 6px 20px ${alpha(theme.palette.primary.main, 0.5)}`,
+                boxShadow: `0 6px 20px ${alpha(
+                  theme.palette.primary.main,
+                  0.5
+                )}`,
               },
               "&:active": {
                 transform: "translateY(0)",
@@ -343,7 +357,9 @@ const FileUploadBox = ({
           p: 3,
           borderRadius: 2,
           border: `2px dashed ${
-            file ? theme.palette.success.main : alpha(theme.palette.divider, 0.8)
+            file
+              ? theme.palette.success.main
+              : alpha(theme.palette.divider, 0.8)
           }`,
           background: file
             ? alpha(theme.palette.success.main, 0.05)

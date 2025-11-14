@@ -440,11 +440,7 @@ const Career = memo(() => {
                     >
                       {benefit.icon}
                     </Box>
-                    <Typography
-                      variant="h6"
-                      fontWeight={600}
-                      sx={{ mb: 1 }}
-                    >
+                    <Typography variant="h6" fontWeight={600} sx={{ mb: 1 }}>
                       {benefit.title}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
@@ -619,9 +615,9 @@ const Career = memo(() => {
             color="text.secondary"
             sx={{ mb: 4, maxWidth: 600, mx: "auto" }}
           >
-            We're always interested in meeting talented individuals who share our
-            passion for education and travel. Send us your resume and let's start
-            a conversation!
+            We're always interested in meeting talented individuals who share
+            our passion for education and travel. Send us your resume and let's
+            start a conversation!
           </Typography>
           <Button
             variant="contained"

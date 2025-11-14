@@ -256,7 +256,10 @@ const OtpVerificationStep = ({
               transition: "all 0.3s",
               "&:hover": {
                 transform: "translateY(-2px)",
-                boxShadow: `0 6px 20px ${alpha(theme.palette.primary.main, 0.5)}`,
+                boxShadow: `0 6px 20px ${alpha(
+                  theme.palette.primary.main,
+                  0.5
+                )}`,
               },
               "&:active": {
                 transform: "translateY(0)",

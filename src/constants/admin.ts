@@ -10,7 +10,18 @@ export type AdminNavItem = {
 };
 
 export const ADMIN_NAV_ITEMS: AdminNavItem[] = [
-  { id: "overview", label: "Overview", path: "/admin/overview", icon: "gauge" },
+  {
+    id: "dashboard",
+    label: "Dashboard",
+    path: "/admin/dashboard",
+    icon: "gauge",
+  },
+  {
+    id: "destinations",
+    label: "Destinations",
+    path: "/admin/destinations",
+    icon: "map-pin",
+  },
   { id: "users", label: "Users", path: "/admin/users", icon: "users" },
   {
     id: "institutes",
@@ -18,23 +29,36 @@ export const ADMIN_NAV_ITEMS: AdminNavItem[] = [
     path: "/admin/institutes",
     icon: "school",
   },
-  { id: "courses", label: "Courses", path: "/admin/courses", icon: "book" },
+  {
+    id: "documents",
+    label: "Documents",
+    path: "/admin/documents",
+    icon: "file",
+  },
+  {
+    id: "notification",
+    label: "Notification",
+    path: "/admin/notification",
+    icon: "bell",
+  },
+  {
+    id: "questions",
+    label: "Questions",
+    path: "/admin/questions",
+    icon: "help",
+  },
+  { id: "results", label: "Results", path: "/admin/results", icon: "list" },
+  { id: "career", label: "Career", path: "/admin/career", icon: "briefcase" },
   {
     id: "marketing",
     label: "Marketing",
     path: "/admin/marketing",
-    icon: "megaphone",
+    icon: "eye",
   },
   {
-    id: "reports",
-    label: "Reports",
-    path: "/admin/reports",
-    icon: "chart-bar",
-  },
-  {
-    id: "settings",
-    label: "Settings",
-    path: "/admin/settings",
-    icon: "settings",
+    id: "support",
+    label: "Support",
+    path: "/admin/support",
+    icon: "help-circle",
   },
 ];

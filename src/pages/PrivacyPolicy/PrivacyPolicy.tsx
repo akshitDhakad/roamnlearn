@@ -321,22 +321,28 @@ const PrivacyPolicy = memo(() => {
               </Typography>
             </Box>
 
-              {section.content.map((item, itemIndex) => (
-              <Box key={itemIndex} sx={{ mb: itemIndex < section.content.length - 1 ? 3 : 0 }}>
-                {("subtitle" in item) && (
+            {section.content.map((item, itemIndex) => (
+              <Box
+                key={itemIndex}
+                sx={{ mb: itemIndex < section.content.length - 1 ? 3 : 0 }}
+              >
+                {"subtitle" in item && (
                   <Typography
                     variant="h6"
                     fontWeight={600}
                     sx={{ mb: 2, color: theme.palette.primary.main }}
                   >
-                    {("subtitle" in item) ? item.subtitle : ""}
+                    {"subtitle" in item ? item.subtitle : ""}
                   </Typography>
                 )}
-                {("text" in item) && (
+                {"text" in item && (
                   <Typography
                     variant="body1"
                     paragraph
-                    sx={{ lineHeight: 1.8, mb: Array.isArray((item as any).list) ? 2 : 0 }}
+                    sx={{
+                      lineHeight: 1.8,
+                      mb: Array.isArray((item as any).list) ? 2 : 0,
+                    }}
                   >
                     {item.text}
                   </Typography>
@@ -484,10 +490,14 @@ const PrivacyPolicy = memo(() => {
                 <IconUser size={20} color={theme.palette.primary.main} />
               </Box>
               <Typography variant="body1">
-                Mailing Address:<br />
-                RoamnLearn Inc.<br />
-                123 Education Street<br />
-                New York, NY 10001<br />
+                Mailing Address:
+                <br />
+                RoamnLearn Inc.
+                <br />
+                123 Education Street
+                <br />
+                New York, NY 10001
+                <br />
                 United States
               </Typography>
             </Box>

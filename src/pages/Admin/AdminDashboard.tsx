@@ -1,153 +1,479 @@
-import { Box, Paper, Typography, Stack, Divider, Grid } from "@mui/material";
 import {
-  IconUsers,
-  IconSchool,
-  IconBook2,
-  IconCurrencyRupee,
+  Box,
+  Paper,
+  Typography,
+  Stack,
+  Chip,
+  Button,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Checkbox,
+  IconButton,
+  Fab,
+  useTheme,
+} from "@mui/material";
+import {
+  IconArrowUp,
+  IconArrowDown,
+  IconDotsVertical,
+  IconBrandWhatsapp,
 } from "@tabler/icons-react";
 import AdminLayout from "../../components/layout/AdminLayout";
+import { useState } from "react";
 
+/**
+ * Summary card component for dashboard metrics
+ */
 const StatCard = ({
   label,
   value,
-  icon,
-  color,
+  percentage,
+  status,
+  description,
+  subItems,
+  trend,
 }: {
   label: string;
   value: string | number;
-  icon: React.ReactNode;
-  color: string;
+  percentage?: string;
+  status?: string;
+  description?: string;
+  subItems?: Array<{ label: string; value: string; trend?: "up" | "down" }>;
+  trend?: "up" | "down";
 }) => {
+  const theme = useTheme();
+  const isPositive = trend === "up";
+  const percentageColor = isPositive
+    ? theme.palette.success.main
+    : theme.palette.error.main;
+
   return (
     <Paper
       elevation={0}
       sx={{
-        p: 2,
+        p: 2.5,
         borderRadius: 2,
         border: "1px solid",
         borderColor: "divider",
+        height: "100%",
       }}
     >
-      <Stack direction="row" alignItems="center" spacing={2}>
-        <Box
-          sx={{
-            width: 44,
-            height: 44,
-            borderRadius: 2,
-            display: "grid",
-            placeItems: "center",
-            bgcolor: color,
-            color: "primary.contrastText",
-          }}
+      <Stack spacing={1.5}>
+        <Typography
+          variant="overline"
+          sx={{ color: "text.secondary", fontSize: "0.75rem" }}
         >
-          {icon}
-        </Box>
-        <Box>
-          <Typography variant="overline" sx={{ color: "text.secondary" }}>
-            {label}
+          {label}
+        </Typography>
+        <Typography variant="h4" sx={{ fontWeight: 700 }}>
+          {value}
+        </Typography>
+        {percentage && (
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+            <Chip
+              label={
+                <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+                  {isPositive ? (
+                    <IconArrowUp size={14} />
+                  ) : (
+                    <IconArrowDown size={14} />
+                  )}
+                  {percentage}
+                </Box>
+              }
+              size="small"
+              sx={{
+                backgroundColor: isPositive
+                  ? `${theme.palette.success.main}20`
+                  : `${theme.palette.error.main}20`,
+                color: percentageColor,
+                height: 24,
+                fontSize: "0.7rem",
+                fontWeight: 500,
+              }}
+            />
+            {status && (
+              <Typography variant="caption" sx={{ color: "text.secondary" }}>
+                {status}
+              </Typography>
+            )}
+          </Box>
+        )}
+        {description && (
+          <Typography variant="caption" sx={{ color: "text.secondary" }}>
+            {description}
           </Typography>
-          <Typography variant="h5" sx={{ fontWeight: 700 }}>
-            {value}
-          </Typography>
-        </Box>
+        )}
+        {subItems && (
+          <Stack spacing={0.5} sx={{ mt: 1 }}>
+            {subItems.map((item, index) => (
+              <Box
+                key={index}
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                }}
+              >
+                <Typography variant="caption" sx={{ color: "text.secondary" }}>
+                  {item.label}
+                </Typography>
+                <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+                  {item.trend === "up" && (
+                    <IconArrowUp size={12} color={theme.palette.success.main} />
+                  )}
+                  <Typography variant="caption" sx={{ fontWeight: 500 }}>
+                    {item.value}
+                  </Typography>
+                </Box>
+              </Box>
+            ))}
+          </Stack>
+        )}
       </Stack>
     </Paper>
   );
 };
 
 /**
- * Admin dashboard page with sidebar and content section
+ * User table row data type
+ */
+interface UserRow {
+  id: string;
+  uniqueId: string;
+  name: string;
+  email: string;
+  status: "Accepted" | "Pending" | "Rejected";
+  phone: string;
+  role: string;
+}
+
+/**
+ * Admin dashboard page with all sections as shown in the image
  */
 const AdminDashboard = () => {
+  const theme = useTheme();
+  const [selectedPeriod, setSelectedPeriod] = useState("3months");
+  const [selectedUsers, setSelectedUsers] = useState<string[]>([]);
+
+  // Sample user data
+  const users: UserRow[] = [
+    {
+      id: "1",
+      uniqueId: "68f2fbc2f3098417873c09d7",
+      name: "Akshit Dhakad",
+      email: "akshit.mrski@gmail.com",
+      status: "Accepted",
+      phone: "",
+      role: "user",
+    },
+  ];
+
+  const handleSelectAll = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.checked) {
+      setSelectedUsers(users.map((user) => user.id));
+    } else {
+      setSelectedUsers([]);
+    }
+  };
+
+  const handleSelectUser = (userId: string) => {
+    setSelectedUsers((prev) =>
+      prev.includes(userId)
+        ? prev.filter((id) => id !== userId)
+        : [...prev, userId]
+    );
+  };
+
+  const isAllSelected =
+    users.length > 0 && selectedUsers.length === users.length;
+
   return (
-    <AdminLayout title="Admin Dashboard" activeItemId="overview">
-      <Grid container spacing={2}>
-        <Grid item xs={12} sm={6} md={3}>
+    <AdminLayout title="Admin Dashboard" activeItemId="dashboard">
+      <Box sx={{ position: "relative", pb: 10 }}>
+        {/* Summary Cards */}
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: {
+              xs: "1fr",
+              sm: "repeat(2, 1fr)",
+              md: "repeat(4, 1fr)",
+            },
+            gap: 2,
+            mb: 3,
+          }}
+        >
           <StatCard
-            label="Total Students"
-            value="12,480"
-            icon={<IconUsers size={20} />}
-            color="#1976d2"
+            label="Total Colleges"
+            value="0"
+            percentage="0.0%"
+            status="Needs attention"
+            description="Based on monthly growth rate"
+            trend="down"
           />
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
           <StatCard
-            label="Institutes"
-            value="312"
-            icon={<IconSchool size={20} />}
-            color="#2e7d32"
+            label="Total Users"
+            value="4"
+            percentage="0.0%"
+            status="Growth slowing"
+            description="Regular user accounts"
+            trend="down"
           />
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
           <StatCard
-            label="Courses"
-            value="1,245"
-            icon={<IconBook2 size={20} />}
-            color="#9c27b0"
+            label="Upcoming Tours"
+            value="1"
+            percentage="100.0%"
+            trend="up"
+            subItems={[
+              { label: "0 Active Tours", value: "Total Tours: 1", trend: "up" },
+            ]}
           />
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
           <StatCard
-            label="Revenue (MoM)"
-            value="₹ 8.4M"
-            icon={<IconCurrencyRupee size={20} />}
-            color="#ed6c02"
+            label="Active Users"
+            value="5"
+            percentage="125.0%"
+            trend="up"
+            subItems={[
+              {
+                label: "Verified accounts",
+                value: "Of total registered users",
+                trend: "up",
+              },
+            ]}
           />
-        </Grid>
+        </Box>
 
-        <Grid item xs={12} md={8}>
-          <Paper
-            elevation={0}
+        {/* Registration Trends Section */}
+        <Paper
+          elevation={0}
+          sx={{
+            p: 3,
+            mb: 3,
+            borderRadius: 2,
+            border: "1px solid",
+            borderColor: "divider",
+          }}
+        >
+          <Box
             sx={{
-              p: 2,
-              borderRadius: 2,
-              border: "1px solid",
-              borderColor: "divider",
-              minHeight: 280,
-            }}
-          >
-            <Typography variant="h6" sx={{ fontWeight: 700, mb: 1.5 }}>
-              Overview
-            </Typography>
-            <Typography sx={{ color: "text.secondary" }}>
-              This is the admin dashboard content area. Add charts, tables, and
-              analytics here.
-            </Typography>
-          </Paper>
-        </Grid>
-
-        <Grid item xs={12} md={4}>
-          <Paper
-            elevation={0}
-            sx={{
-              p: 2,
-              borderRadius: 2,
-              border: "1px solid",
-              borderColor: "divider",
-              minHeight: 280,
               display: "flex",
-              flexDirection: "column",
+              justifyContent: "space-between",
+              alignItems: "flex-start",
+              mb: 2,
             }}
           >
-            <Typography variant="h6" sx={{ fontWeight: 700, mb: 1.5 }}>
-              Recent activity
-            </Typography>
-            <Stack spacing={1.5}>
-              {[
-                "New institute onboarded",
-                "Course published: Data Science 101",
-                "Marketing campaign launched",
-                "5 new admin users invited",
-              ].map((text) => (
-                <Box key={text}>
-                  <Typography variant="body2">{text}</Typography>
-                  <Divider sx={{ mt: 1 }} />
-                </Box>
-              ))}
+            <Box>
+              <Typography variant="h6" sx={{ fontWeight: 700, mb: 0.5 }}>
+                Registration Trends
+              </Typography>
+              <Typography variant="body2" sx={{ color: "text.secondary" }}>
+                College and user registrations over time
+              </Typography>
+            </Box>
+            <Stack direction="row" spacing={1}>
+              <Button
+                variant={
+                  selectedPeriod === "3months" ? "contained" : "outlined"
+                }
+                size="small"
+                onClick={() => setSelectedPeriod("3months")}
+                sx={{
+                  textTransform: "none",
+                  minWidth: 100,
+                  backgroundColor:
+                    selectedPeriod === "3months"
+                      ? theme.palette.primary.main
+                      : "transparent",
+                }}
+              >
+                Last 3 months
+              </Button>
+              <Button
+                variant={selectedPeriod === "30days" ? "contained" : "outlined"}
+                size="small"
+                onClick={() => setSelectedPeriod("30days")}
+                sx={{
+                  textTransform: "none",
+                  minWidth: 100,
+                  backgroundColor:
+                    selectedPeriod === "30days"
+                      ? theme.palette.primary.main
+                      : "transparent",
+                }}
+              >
+                Last 30 days
+              </Button>
+              <Button
+                variant={selectedPeriod === "7days" ? "contained" : "outlined"}
+                size="small"
+                onClick={() => setSelectedPeriod("7days")}
+                sx={{
+                  textTransform: "none",
+                  minWidth: 100,
+                  backgroundColor:
+                    selectedPeriod === "7days"
+                      ? theme.palette.primary.main
+                      : "transparent",
+                }}
+              >
+                Last 7 days
+              </Button>
             </Stack>
-          </Paper>
-        </Grid>
-      </Grid>
+          </Box>
+          {/* Chart area placeholder */}
+          <Box
+            sx={{
+              height: 300,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              border: "1px dashed",
+              borderColor: "divider",
+              borderRadius: 2,
+              backgroundColor: "background.default",
+            }}
+          >
+            <Typography variant="body2" sx={{ color: "text.secondary" }}>
+              Chart will be displayed here
+            </Typography>
+          </Box>
+        </Paper>
+
+        {/* User Table */}
+        <Paper
+          elevation={0}
+          sx={{
+            borderRadius: 2,
+            border: "1px solid",
+            borderColor: "divider",
+            overflow: "hidden",
+          }}
+        >
+          <TableContainer>
+            <Table>
+              <TableHead>
+                <TableRow sx={{ backgroundColor: "background.default" }}>
+                  <TableCell padding="checkbox">
+                    <Checkbox
+                      indeterminate={selectedUsers.length > 0 && !isAllSelected}
+                      checked={isAllSelected}
+                      onChange={handleSelectAll}
+                    />
+                  </TableCell>
+                  <TableCell>
+                    <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+                      Unique ID
+                    </Typography>
+                  </TableCell>
+                  <TableCell>
+                    <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+                      Name
+                    </Typography>
+                  </TableCell>
+                  <TableCell>
+                    <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+                      Email
+                    </Typography>
+                  </TableCell>
+                  <TableCell>
+                    <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+                      Status
+                    </Typography>
+                  </TableCell>
+                  <TableCell>
+                    <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+                      Phone
+                    </Typography>
+                  </TableCell>
+                  <TableCell>
+                    <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+                      Role
+                    </Typography>
+                  </TableCell>
+                  <TableCell align="right">
+                    <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+                      Actions
+                    </Typography>
+                  </TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {users.map((user) => (
+                  <TableRow key={user.id} hover>
+                    <TableCell padding="checkbox">
+                      <Checkbox
+                        checked={selectedUsers.includes(user.id)}
+                        onChange={() => handleSelectUser(user.id)}
+                      />
+                    </TableCell>
+                    <TableCell>
+                      <Typography variant="body2">{user.uniqueId}</Typography>
+                    </TableCell>
+                    <TableCell>
+                      <Typography variant="body2" sx={{ fontWeight: 500 }}>
+                        {user.name}
+                      </Typography>
+                    </TableCell>
+                    <TableCell>
+                      <Typography variant="body2">{user.email}</Typography>
+                    </TableCell>
+                    <TableCell>
+                      <Chip
+                        label={user.status}
+                        size="small"
+                        sx={{
+                          backgroundColor: `${theme.palette.success.main}20`,
+                          color: theme.palette.success.main,
+                          fontWeight: 500,
+                          height: 24,
+                        }}
+                      />
+                    </TableCell>
+                    <TableCell>
+                      <Typography
+                        variant="body2"
+                        sx={{ color: "text.secondary" }}
+                      >
+                        {user.phone || "-"}
+                      </Typography>
+                    </TableCell>
+                    <TableCell>
+                      <Typography variant="body2">{user.role}</Typography>
+                    </TableCell>
+                    <TableCell align="right">
+                      <IconButton size="small">
+                        <IconDotsVertical size={18} />
+                      </IconButton>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </Paper>
+
+        {/* Floating WhatsApp Button */}
+        <Fab
+          color="primary"
+          aria-label="WhatsApp"
+          sx={{
+            position: "fixed",
+            bottom: 24,
+            right: 24,
+            backgroundColor: theme.palette.primary.main,
+            "&:hover": {
+              backgroundColor: theme.palette.primary.dark,
+            },
+          }}
+        >
+          <IconBrandWhatsapp size={24} />
+        </Fab>
+      </Box>
     </AdminLayout>
   );
 };

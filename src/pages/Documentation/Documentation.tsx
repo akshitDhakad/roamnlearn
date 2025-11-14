@@ -66,7 +66,8 @@ interface DocGuide {
 const Documentation = memo(() => {
   const theme = useTheme();
   const [searchQuery, setSearchQuery] = useState("");
-  const [expandedCategory, setExpandedCategory] = useState<string>("getting-started");
+  const [expandedCategory, setExpandedCategory] =
+    useState<string>("getting-started");
 
   const categories: DocCategory[] = [
     {
@@ -78,7 +79,8 @@ const Documentation = memo(() => {
         {
           id: "create-account",
           title: "Creating Your Account",
-          description: "Step-by-step guide to setting up your RoamnLearn account",
+          description:
+            "Step-by-step guide to setting up your RoamnLearn account",
           steps: [
             "Visit the RoamnLearn website and click 'Sign Up'",
             "Enter your email address and create a secure password",
@@ -91,7 +93,8 @@ const Documentation = memo(() => {
         {
           id: "browse-tours",
           title: "Browsing Tours",
-          description: "How to find the perfect educational tour for your group",
+          description:
+            "How to find the perfect educational tour for your group",
           steps: [
             "Use the search bar to find tours by destination or subject",
             "Apply filters for dates, duration, budget, and educational focus",

@@ -564,8 +564,8 @@ const HelpCenter = memo(() => {
             color="text.secondary"
             sx={{ mb: 4, maxWidth: 600, mx: "auto" }}
           >
-            Explore our comprehensive documentation or get in touch with our team
-            for personalized assistance.
+            Explore our comprehensive documentation or get in touch with our
+            team for personalized assistance.
           </Typography>
           <Stack
             direction={{ xs: "column", sm: "row" }}
